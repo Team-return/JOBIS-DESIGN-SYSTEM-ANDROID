@@ -46,4 +46,30 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }
 
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                // Applies the component for the release build variant.
+                from components.release
+
+                // You can then customize attributes of the publication as shown below.
+                groupId = 'team.retum.jobisdesignsystem'
+                artifactId = 'final'
+                version = 'v0.0.1'
+            }
+            // Creates a Maven publication called “debug”.
+            debug(MavenPublication) {
+                // Applies the component for the debug build variant.
+                from components.debug
+
+                groupId = 'team.retum.jobisdesignsystem'
+                artifactId = 'final-debug'
+                version = 'v0.0.1'
+            }
+        }
+    }
+}
+
 group='com.github.Tmdhoon2'
