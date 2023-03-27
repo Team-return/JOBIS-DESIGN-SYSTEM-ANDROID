@@ -57,7 +57,7 @@ afterEvaluate {
                 // You can then customize attributes of the publication as shown below.
                 groupId = 'team.retum.jobisdesignsystem'
                 artifactId = 'final'
-                version = 'v0.0.1'
+                version = 'v1.0.1'
             }
             // Creates a Maven publication called “debug”.
             debug(MavenPublication) {
@@ -66,7 +66,7 @@ afterEvaluate {
 
                 groupId = 'team.retum.jobisdesignsystem'
                 artifactId = 'final-debug'
-                version = 'v0.0.1'
+                version = 'v1.0.1'
             }
         }
     }

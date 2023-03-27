@@ -1,4 +1,4 @@
-package team.retum.jobisui.textfield
+package team.returm.jobisdesignsystem.textfield
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
@@ -15,6 +15,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
+import team.retum.jobisui.colors.JobisColor
 import team.retum.jobisui.colors.TextFieldColor
 import team.retum.jobisui.image.JobisImage
 import team.retum.jobisui.ui.theme.Body4
@@ -22,6 +23,7 @@ import team.retum.jobisui.ui.theme.Caption
 import team.retum.jobisui.ui.theme.JobisTypography
 import team.retum.jobisui.util.JobisSize
 import team.returm.jobisdesignsystem.R
+import team.returm.jobisdesignsystem.util.Animated
 
 @Composable
 fun JobisTextField(
@@ -44,6 +46,7 @@ fun JobisTextField(
     error: Boolean,
     divider: @Composable (() -> Unit)? = null,
     isFocused: Boolean,
+    isBox: Boolean = false,
 ) {
 
     var passwordVisible by remember { mutableStateOf(false) }
@@ -65,9 +68,11 @@ fun JobisTextField(
         if (fieldText != null) {
             Body4(
                 color = fieldTextColor,
-                modifier = Modifier.padding(bottom = 8.dp),
                 text = fieldText,
             )
+            if(isBox) {
+                Spacer(modifier = Modifier.height(8.dp))
+            }
         }
         Row(
             modifier = modifier,
@@ -82,7 +87,7 @@ fun JobisTextField(
                 maxLines = 1,
                 keyboardOptions = keyboardOptions,
                 keyboardActions = keyboardActions,
-                textStyle = JobisTypography.caption,
+                textStyle = JobisTypography.subtitle2,
                 enabled = enabled,
             ) { innerTextField ->
                 Row(
@@ -94,7 +99,7 @@ fun JobisTextField(
                     Box {
                         if (value.isEmpty()) {
                             Body4(
-                                color = textColor,
+                                color = JobisColor.Gray500,
                                 text = hint,
                             )
                         }
@@ -114,11 +119,15 @@ fun JobisTextField(
             divider()
         }
         if (helperText != null && enabled) {
-            Spacer(modifier = Modifier.height(4.dp))
-            Caption(
-                color = helperTextColor,
-                text = helperText,
-            )
+            Animated(
+                visible = error,
+            ) {
+                Spacer(modifier = Modifier.height(8.dp))
+                Caption(
+                    color = helperTextColor,
+                    text = helperText,
+                )
+            }
         }
     }
 }
@@ -169,6 +178,7 @@ fun JobisBoxTextField(
         keyboardActions = keyboardActions,
         keyboardOptions = keyboardOptions,
         keyboardType = keyboardType,
+        isBox = true,
     )
 }
 
