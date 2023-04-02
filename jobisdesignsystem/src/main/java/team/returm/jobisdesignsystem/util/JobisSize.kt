@@ -72,6 +72,9 @@ object JobisSize {
         val Large = RoundedCornerShape(16.dp)
 
         @Stable
+        val Big = RoundedCornerShape(20.dp)
+
+        @Stable
         val Circle = CircleShape
 
         @Stable
