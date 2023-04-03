@@ -1,4 +1,4 @@
-package team.retum.jobisui.util
+package team.returm.jobisdesignsystem.util
 
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
@@ -35,11 +35,15 @@ object JobisSize {
         }
 
         object Icon {
-            @Stable
-            val Small = Modifier.size(30.dp)
 
             @Stable
-            val Medium = Modifier.size(44.dp)
+            val Small = Modifier.size(24.dp)
+
+            @Stable
+            val Medium = Modifier.size(30.dp)
+
+            @Stable
+            val Large = Modifier.size(44.dp)
         }
     }
 

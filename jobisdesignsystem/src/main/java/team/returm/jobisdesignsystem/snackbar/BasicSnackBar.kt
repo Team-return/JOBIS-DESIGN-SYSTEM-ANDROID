@@ -20,7 +20,7 @@ import team.retum.jobisui.colors.JobisColor
 import team.retum.jobisui.image.JobisImage
 import team.retum.jobisui.ui.theme.Body3
 import team.retum.jobisui.ui.theme.Body4
-import team.retum.jobisui.util.JobisSize
+import team.returm.jobisdesignsystem.util.JobisSize
 import team.returm.jobisdesignsystem.R
 import team.returm.jobisdesignsystem.util.Animated
 
@@ -81,7 +81,7 @@ fun BasicSnackBar(
         }
 
         JobisImage(
-            drawable = R.drawable.ic_snack_bar_close,
+            drawable = R.drawable.ic_close,
             onClick = onCloseClick,
         )
     }
