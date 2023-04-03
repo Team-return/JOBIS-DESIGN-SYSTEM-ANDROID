@@ -22,7 +22,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import team.retum.jobisui.colors.ButtonColor
 import team.retum.jobisui.ui.theme.JobisTypography
-import team.retum.jobisui.util.JobisSize
+import team.returm.jobisdesignsystem.util.JobisSize
 import team.retum.jobisui.util.jobisClickable
 
 @Composable
