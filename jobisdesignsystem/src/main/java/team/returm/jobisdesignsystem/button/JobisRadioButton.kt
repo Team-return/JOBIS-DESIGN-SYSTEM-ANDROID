@@ -14,7 +14,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import team.retum.jobisui.colors.CheckBoxColor
-import team.retum.jobisui.util.JobisSize
+import team.returm.jobisdesignsystem.util.JobisSize
 import team.retum.jobisui.util.jobisClickable
 
 @Composable

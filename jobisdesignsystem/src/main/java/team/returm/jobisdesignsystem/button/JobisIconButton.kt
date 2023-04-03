@@ -6,7 +6,7 @@ import androidx.compose.ui.graphics.Shape
 import team.retum.jobisui.colors.ButtonColor
 import team.retum.jobisui.image.JobisImage
 import team.retum.jobisui.ui.theme.JobisTypography
-import team.retum.jobisui.util.JobisSize
+import team.returm.jobisdesignsystem.util.JobisSize
 import team.returm.jobisdesignsystem.button.BasicButton
 
 @Composable
@@ -50,7 +50,7 @@ fun JobisSmallIconButton(
         color = color,
         enabled = enabled,
         imageSize = JobisSize.IconSize.Small,
-        modifier = JobisSize.ButtonSize.Icon.Small,
+        modifier = JobisSize.ButtonSize.Icon.Medium,
         onClick = onClick,
         shape = JobisSize.Shape.Circle,
     )
@@ -69,7 +69,7 @@ fun JobisMediumIconButton(
         color = color,
         enabled = enabled,
         imageSize = JobisSize.IconSize.Medium,
-        modifier = JobisSize.ButtonSize.Icon.Medium,
+        modifier = JobisSize.ButtonSize.Icon.Large,
         onClick = onClick,
         shape = shape,
     )
