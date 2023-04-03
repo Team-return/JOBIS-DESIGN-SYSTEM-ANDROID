@@ -21,7 +21,7 @@ import team.retum.jobisui.image.JobisImage
 import team.retum.jobisui.ui.theme.Body4
 import team.retum.jobisui.ui.theme.Caption
 import team.retum.jobisui.ui.theme.JobisTypography
-import team.retum.jobisui.util.JobisSize
+import team.returm.jobisdesignsystem.util.JobisSize
 import team.returm.jobisdesignsystem.R
 import team.returm.jobisdesignsystem.util.Animated
 
@@ -47,6 +47,7 @@ fun JobisTextField(
     divider: @Composable (() -> Unit)? = null,
     isFocused: Boolean,
     isBox: Boolean = false,
+    icon: @Composable (() -> Unit)? = null,
 ) {
 
     var passwordVisible by remember { mutableStateOf(false) }
@@ -58,11 +59,6 @@ fun JobisTextField(
 
     val helperTextColor = if (error) color.errorColor.helperTextColor
     else color.unFocusedColor.helperTextColor
-
-    val textColor = if (!enabled) color.disabledColor.textColor
-    else if (error) color.errorColor.textColor
-    else color.unFocusedColor.textColor
-
 
     Column {
         if (fieldText != null) {
@@ -114,6 +110,9 @@ fun JobisTextField(
                     else R.drawable.ic_visible_off
                 )
             }
+            if(icon != null){
+                icon()
+            }
         }
         if (divider != null) {
             divider()
@@ -146,6 +145,7 @@ fun JobisBoxTextField(
     keyboardType: KeyboardType = KeyboardType.Text,
     fieldText: String? = null,
     helperText: String? = null,
+    icon: @Composable (() -> Unit)? = null,
 ) {
 
     var isFocused by remember { mutableStateOf(false) }
@@ -179,6 +179,7 @@ fun JobisBoxTextField(
         keyboardOptions = keyboardOptions,
         keyboardType = keyboardType,
         isBox = true,
+        icon = icon,
     )
 }
 
@@ -196,6 +197,7 @@ fun JobisUnderLineTextField(
     keyboardType: KeyboardType = KeyboardType.Text,
     fieldText: String? = null,
     helperText: String? = null,
+    icon: @Composable (() -> Unit)?
 ) {
 
     var isFocused by remember { mutableStateOf(false) }
@@ -231,6 +233,7 @@ fun JobisUnderLineTextField(
                         color = outLineColor,
                     )
             )
-        }
+        },
+        icon = icon,
     )
 }
