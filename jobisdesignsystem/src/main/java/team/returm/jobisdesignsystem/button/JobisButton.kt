@@ -7,6 +7,7 @@ import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -22,8 +23,8 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import team.retum.jobisui.colors.ButtonColor
 import team.retum.jobisui.ui.theme.JobisTypography
-import team.returm.jobisdesignsystem.util.JobisSize
 import team.retum.jobisui.util.jobisClickable
+import team.returm.jobisdesignsystem.util.JobisSize
 
 @Composable
 fun BasicButton(
@@ -64,8 +65,9 @@ fun BasicButton(
 
     Row(
         modifier = modifier
+            .fillMaxWidth()
             .shadow(
-                elevation = if(shadow) 6.dp
+                elevation = if (shadow) 6.dp
                 else 0.dp,
                 shape = shape,
             )
@@ -112,9 +114,9 @@ fun JobisSmallButton(
     color: ButtonColor,
     leftIcon: @Composable (() -> Unit)? = null,
     rightIcon: @Composable (() -> Unit)? = null,
-    onClick: () -> Unit,
     enabled: Boolean = true,
     shadow: Boolean = false,
+    onClick: () -> Unit,
 ) {
     BasicButton(
         modifier = JobisSize.ButtonSize.Default.Small,
@@ -136,9 +138,9 @@ fun JobisMediumButton(
     color: ButtonColor,
     leftIcon: @Composable (() -> Unit)? = null,
     rightIcon: @Composable (() -> Unit)? = null,
-    onClick: () -> Unit,
     enabled: Boolean = true,
     shadow: Boolean = false,
+    onClick: () -> Unit,
 ) {
     BasicButton(
         modifier = JobisSize.ButtonSize.Default.Medium,
@@ -160,9 +162,9 @@ fun JobisLargeButton(
     color: ButtonColor,
     leftIcon: @Composable (() -> Unit)? = null,
     rightIcon: @Composable (() -> Unit)? = null,
-    onClick: () -> Unit,
     enabled: Boolean = true,
     shadow: Boolean = false,
+    onClick: () -> Unit,
 ) {
     BasicButton(
         modifier = JobisSize.ButtonSize.Default.Large,

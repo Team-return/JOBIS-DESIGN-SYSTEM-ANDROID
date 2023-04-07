@@ -1,6 +1,5 @@
-package team.retum.jobisui.checkbox
+package team.returm.jobisdesignsystem.checkbox
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -10,12 +9,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import team.retum.jobisui.colors.CheckBoxColor
-import team.returm.jobisdesignsystem.util.JobisSize
 import team.retum.jobisui.util.jobisClickable
-import team.returm.jobisdesignsystem.R
+import team.returm.jobisdesignsystem.icon.JobisIcon
+import team.returm.jobisdesignsystem.image.JobisImage
+import team.returm.jobisdesignsystem.util.JobisSize
 
 @Composable
 fun JobisCheckBox(
@@ -61,10 +60,9 @@ fun JobisCheckBox(
             ),
         contentAlignment = Alignment.Center,
     ) {
-        if(isChecked) {
-            Image(
-                painterResource(id = R.drawable.ic_check),
-                contentDescription = null,
+        if (isChecked) {
+            JobisImage(
+                drawable = JobisIcon.Check
             )
         }
     }

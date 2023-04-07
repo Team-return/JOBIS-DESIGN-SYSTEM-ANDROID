@@ -1,4 +1,4 @@
-package team.retum.jobisui.image
+package team.returm.jobisdesignsystem.image
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.interaction.MutableInteractionSource

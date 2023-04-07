@@ -17,12 +17,12 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import team.retum.jobisui.colors.JobisColor
-import team.retum.jobisui.image.JobisImage
 import team.retum.jobisui.ui.theme.Body3
 import team.retum.jobisui.ui.theme.Body4
-import team.returm.jobisdesignsystem.util.JobisSize
-import team.returm.jobisdesignsystem.R
+import team.returm.jobisdesignsystem.icon.JobisIcon
+import team.returm.jobisdesignsystem.image.JobisImage
 import team.returm.jobisdesignsystem.util.Animated
+import team.returm.jobisdesignsystem.util.JobisSize
 
 @Composable
 fun BasicSnackBar(
@@ -81,7 +81,7 @@ fun BasicSnackBar(
         }
 
         JobisImage(
-            drawable = R.drawable.ic_close,
+            drawable = JobisIcon.Close,
             onClick = onCloseClick,
         )
     }
