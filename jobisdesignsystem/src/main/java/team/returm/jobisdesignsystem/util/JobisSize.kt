@@ -1,5 +1,6 @@
 package team.returm.jobisdesignsystem.util
 
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -13,25 +14,13 @@ object JobisSize {
 
         object Default {
             @Stable
-            val Small = Modifier
-                .size(
-                    width = 70.dp,
-                    height = 30.dp,
-                )
+            val Small = Modifier.height(30.dp)
 
             @Stable
-            val Medium = Modifier
-                .size(
-                    width = 130.dp,
-                    height = 44.dp,
-                )
+            val Medium = Modifier.height(44.dp)
 
             @Stable
-            val Large = Modifier
-                .size(
-                    width = 320.dp,
-                    height = 50.dp,
-                )
+            val Large = Modifier.height(50.dp)
         }
 
         object Icon {
@@ -47,18 +36,12 @@ object JobisSize {
         }
     }
 
-    object TextFieldSize{
+    object TextFieldSize {
         @Stable
-        val Main = Modifier.size(
-            width = 380.dp,
-            height = 44.dp,
-        )
+        val Main = Modifier.height(44.dp)
 
         @Stable
-        val UnderLine = Modifier.size(
-            width = 380.dp,
-            height = 1.dp,
-        )
+        val UnderLine = Modifier.height(1.dp)
     }
 
     object Shape {
@@ -93,7 +76,7 @@ object JobisSize {
         val Medium = Modifier.size(26.dp)
     }
 
-    object CheckBoxSize{
+    object CheckBoxSize {
         @Stable
         val Default = Modifier.size(24.dp)
     }

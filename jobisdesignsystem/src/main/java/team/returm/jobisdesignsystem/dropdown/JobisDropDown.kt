@@ -26,14 +26,16 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import team.retum.jobisui.colors.DropDownColor
+import team.retum.jobisui.image.JobisImage
 import team.retum.jobisui.ui.theme.Caption
-import team.retum.jobisui.util.JobisSize
 import team.retum.jobisui.util.jobisClickable
 import team.returm.jobisdesignsystem.R
 import team.returm.jobisdesignsystem.util.Animated
+import team.returm.jobisdesignsystem.util.JobisSize
 
 @Composable
 fun JobisDropDown(
@@ -64,7 +66,7 @@ fun JobisDropDown(
         backgroundColor = color.enabledColor.background
     }
 
-    Column{
+    Column {
         Row(
             modifier = modifier
                 .clip(
@@ -97,7 +99,7 @@ fun JobisDropDown(
             )
             JobisImage(
                 modifier = Modifier.rotate(rotateState),
-                drawable = R.drawable.ic_dropdown,
+                drawable = R.drawable.ic_arrow_down,
                 onClick = { isExpanded = !isExpanded },
             )
         }
@@ -111,7 +113,7 @@ fun JobisDropDown(
                 modifier = Modifier
                     .width(116.dp)
                     .height(
-                        height = if(itemList.size >= 5) 94.dp
+                        height = if (itemList.size >= 5) 94.dp
                         else (itemList.size * 26).dp
                     )
                     .border(
