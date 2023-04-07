@@ -1,12 +1,22 @@
 package team.returm.jobisdesignsystem.textfield
 
 import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.Divider
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.onFocusChanged
@@ -17,13 +27,13 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import team.retum.jobisui.colors.JobisColor
 import team.retum.jobisui.colors.TextFieldColor
-import team.retum.jobisui.image.JobisImage
 import team.retum.jobisui.ui.theme.Body4
 import team.retum.jobisui.ui.theme.Caption
 import team.retum.jobisui.ui.theme.JobisTypography
-import team.returm.jobisdesignsystem.util.JobisSize
-import team.returm.jobisdesignsystem.R
+import team.returm.jobisdesignsystem.icon.JobisIcon
+import team.returm.jobisdesignsystem.image.JobisImage
 import team.returm.jobisdesignsystem.util.Animated
+import team.returm.jobisdesignsystem.util.JobisSize
 
 @Composable
 fun JobisTextField(
@@ -60,24 +70,26 @@ fun JobisTextField(
     val helperTextColor = if (error) color.errorColor.helperTextColor
     else color.unFocusedColor.helperTextColor
 
+    val textFieldWidth = if (isPassword) 0.9f else 1f
+
     Column {
         if (fieldText != null) {
             Body4(
                 color = fieldTextColor,
                 text = fieldText,
             )
-            if(isBox) {
+            if (isBox) {
                 Spacer(modifier = Modifier.height(8.dp))
             }
         }
         Row(
-            modifier = modifier,
+            modifier = modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             BasicTextField(
                 value = value,
                 onValueChanged,
-                modifier = Modifier.fillMaxWidth(0.9f),
+                modifier = Modifier.fillMaxWidth(textFieldWidth),
                 singleLine = true,
                 visualTransformation = if (!passwordVisible && isPassword) PasswordVisualTransformation() else VisualTransformation.None,
                 maxLines = 1,
@@ -106,11 +118,11 @@ fun JobisTextField(
             if (isPassword && value.isNotEmpty()) {
                 JobisImage(
                     onClick = { passwordVisible = !passwordVisible },
-                    drawable = if (passwordVisible) R.drawable.ic_visible_on
-                    else R.drawable.ic_visible_off
+                    drawable = if (passwordVisible) JobisIcon.VisibleOn
+                    else JobisIcon.VisibleOff
                 )
             }
-            if(icon != null){
+            if (icon != null) {
                 icon()
             }
         }
@@ -197,7 +209,7 @@ fun JobisUnderLineTextField(
     keyboardType: KeyboardType = KeyboardType.Text,
     fieldText: String? = null,
     helperText: String? = null,
-    icon: @Composable (() -> Unit)?
+    icon: @Composable (() -> Unit)? = null
 ) {
 
     var isFocused by remember { mutableStateOf(false) }

@@ -1,251 +1,76 @@
 package team.returm.jobisdesignsystem.icon
 
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import team.retum.jobisui.image.JobisImage
-import team.returm.jobisdesignsystem.util.JobisSize
+import androidx.compose.runtime.Stable
 import team.returm.jobisdesignsystem.R
 
 object JobisIcon {
 
-    @Composable
-    fun BasicIcon(
-        modifier: Modifier = JobisSize.IconSize.Small,
-        drawable: Int,
-    ) {
-        JobisImage(
-            modifier = modifier,
-            drawable = drawable,
-        )
-    }
+    @Stable
+    val Search = R.drawable.ic_search
 
-    @Composable
-    fun SearchIcon(
-        modifier: Modifier = Modifier,
-    ) {
-        BasicIcon(
-            modifier = modifier,
-            drawable = R.drawable.ic_search,
-        )
-    }
+    @Stable
+    val Date = R.drawable.ic_date
 
-    @Composable
-    fun DateIcon(
-        modifier: Modifier = Modifier,
-    ) {
-        BasicIcon(
-            modifier = modifier,
-            drawable = R.drawable.ic_date,
-        )
-    }
+    @Stable
+    val FileDownload = R.drawable.ic_file_download
 
-    @Composable
-    fun FileDownloadIcon(
-        modifier: Modifier = Modifier,
-    ) {
-        BasicIcon(
-            modifier = modifier,
-            drawable = R.drawable.ic_file_download,
-        )
-    }
+    @Stable
+    val Upload = R.drawable.ic_upload
 
-    @Composable
-    fun UploadIcon(
-        modifier: Modifier = Modifier,
-    ) {
-        BasicIcon(
-            modifier = modifier,
-            drawable = R.drawable.ic_upload,
-        )
-    }
+    @Stable
+    val FilePlus = R.drawable.ic_file_plus
 
-    @Composable
-    fun FilePlusIcon(
-        modifier: Modifier = Modifier,
-    ) {
-        BasicIcon(
-            modifier = modifier,
-            drawable = R.drawable.ic_file_plus,
-        )
-    }
+    @Stable
+    val DownBar = R.drawable.ic_bar_down
 
-    @Composable
-    fun DownBarIcon(
-        modifier: Modifier = Modifier,
-    ) {
-        BasicIcon(
-            modifier = modifier,
-            drawable = R.drawable.ic_bar_down,
-        )
-    }
+    @Stable
+    val VisibleOff = R.drawable.ic_visible_off
 
-    @Composable
-    fun VisibleOffIcon(
-        modifier: Modifier = Modifier,
-    ) {
-        BasicIcon(
-            modifier = modifier,
-            drawable = R.drawable.ic_visible_off,
-        )
-    }
+    @Stable
+    val VisibleOn = R.drawable.ic_visible_on
 
-    @Composable
-    fun VisibleOnIcon(
-        modifier: Modifier = Modifier,
-    ) {
-        BasicIcon(
-            modifier = modifier,
-            drawable = R.drawable.ic_visible_on,
-        )
-    }
+    @Stable
+    val Check = R.drawable.ic_check
 
-    @Composable
-    fun CheckIcon(
-        modifier: Modifier = Modifier,
-    ) {
-        BasicIcon(
-            modifier = modifier,
-            drawable = R.drawable.ic_check,
-        )
-    }
+    @Stable
+    val Close = R.drawable.ic_close
 
-    @Composable
-    fun CloseIcon(
-        modifier: Modifier = Modifier,
-    ) {
-        BasicIcon(
-            modifier = modifier,
-            drawable = R.drawable.ic_close,
-        )
-    }
+    @Stable
+    val DownArrow = R.drawable.ic_arrow_down
 
-    @Composable
-    fun DownArrowIcon(
-        modifier: Modifier = Modifier,
-    ) {
-        BasicIcon(
-            modifier = modifier,
-            drawable = R.drawable.ic_arrow_down,
-        )
-    }
+    @Stable
+    val UpArrow = R.drawable.ic_arrow_up
 
-    @Composable
-    fun UpArrowIcon(
-        modifier: Modifier = Modifier,
-    ) {
-        BasicIcon(
-            modifier = modifier,
-            drawable = R.drawable.ic_arrow_up,
-        )
-    }
+    @Stable
+    val RightArrow = R.drawable.ic_arrow_right
 
-    @Composable
-    fun RightArrowIcon(
-        modifier: Modifier = Modifier,
-    ) {
-        BasicIcon(
-            modifier = modifier,
-            drawable = R.drawable.ic_arrow_right,
-        )
-    }
+    @Stable
+    val LeftArrow = R.drawable.ic_arrow_left
 
-    @Composable
-    fun LeftArrowIcon(
-        modifier: Modifier = Modifier,
-    ) {
-        BasicIcon(
-            modifier = modifier,
-            drawable = R.drawable.ic_arrow_left,
-        )
-    }
+    @Stable
+    val Download = R.drawable.ic_download
 
-    @Composable
-    fun DownLoadIcon(
-        modifier: Modifier = Modifier,
-    ) {
-        BasicIcon(
-            modifier = modifier,
-            drawable = R.drawable.ic_download,
-        )
-    }
+    @Stable
+    val LogOut = R.drawable.ic_logout
 
-    @Composable
-    fun LogOutIcon(
-        modifier: Modifier = Modifier,
-    ) {
-        BasicIcon(
-            modifier = modifier,
-            drawable = R.drawable.ic_logout,
-        )
-    }
+    @Stable
+    val Plus = R.drawable.ic_plus
 
-    @Composable
-    fun PlusIcon(
-        modifier: Modifier = Modifier,
-    ) {
-        BasicIcon(
-            modifier = modifier,
-            drawable = R.drawable.ic_plus,
-        )
-    }
+    @Stable
+    val Menu = R.drawable.ic_menu
 
-    @Composable
-    fun MenuIcon(
-        modifier: Modifier = Modifier,
-    ) {
-        BasicIcon(
-            modifier = modifier,
-            drawable = R.drawable.ic_menu,
-        )
-    }
+    @Stable
+    val Trash = R.drawable.ic_trash
 
-    @Composable
-    fun TrashIcon(
-        modifier: Modifier = Modifier,
-    ) {
-        BasicIcon(
-            modifier = modifier,
-            drawable = R.drawable.ic_trash,
-        )
-    }
+    @Stable
+    val SnackBarChat = R.drawable.ic_snack_bar_chat
 
-    @Composable
-    fun SnackBarChatIcon(
-        modifier: Modifier = Modifier,
-    ) {
-        BasicIcon(
-            modifier = modifier,
-            drawable = R.drawable.ic_snack_bar_chat,
-        )
-    }
+    @Stable
+    val SnackBarCheck = R.drawable.ic_snack_bar_check
 
-    @Composable
-    fun SnackBarCheckIcon(
-        modifier: Modifier = Modifier,
-    ) {
-        BasicIcon(
-            modifier = modifier,
-            drawable = R.drawable.ic_snack_bar_check,
-        )
-    }
+    @Stable
+    val SnackBarError = R.drawable.ic_snack_bar_error
 
-    @Composable
-    fun SnackBarErrorIcon(
-        modifier: Modifier = Modifier,
-    ) {
-        BasicIcon(
-            modifier = modifier,
-            drawable = R.drawable.ic_snack_bar_error,
-        )
-    }
-
-    @Composable
-    fun SnackBarWarningIcon(
-        modifier: Modifier = Modifier,
-    ) {
-        BasicIcon(
-            modifier = modifier,
-            drawable = R.drawable.ic_snack_bar_warning,
-        )
-    }
+    @Stable
+    val SnackBarWarning = R.drawable.ic_snack_bar_warning
 }
