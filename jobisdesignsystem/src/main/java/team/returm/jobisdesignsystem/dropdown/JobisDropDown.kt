@@ -1,15 +1,28 @@
-package team.retum.jobisui.dropdown
+package team.returm.jobisdesignsystem.dropdown
 
-import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Divider
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -20,7 +33,9 @@ import team.retum.jobisui.colors.DropDownColor
 import team.retum.jobisui.image.JobisImage
 import team.retum.jobisui.ui.theme.Caption
 import team.retum.jobisui.util.JobisSize
+import team.retum.jobisui.util.jobisClickable
 import team.returm.jobisdesignsystem.R
+import team.returm.jobisdesignsystem.util.Animated
 
 @Composable
 fun JobisDropDown(
@@ -29,6 +44,7 @@ fun JobisDropDown(
     enabled: Boolean = true,
     itemList: List<String>,
     title: String,
+    onItemSelected: (Int) -> Unit,
 ) {
 
     var dropDownTitle by remember { mutableStateOf(title) }
@@ -50,18 +66,14 @@ fun JobisDropDown(
         backgroundColor = color.enabledColor.background
     }
 
-    Column(
-
-    ) {
+    Column{
         Row(
             modifier = modifier
                 .clip(
                     shape = JobisSize.Shape.Large,
                 )
-                .size(
-                    width = 116.dp,
-                    height = 30.dp,
-                )
+                .fillMaxWidth()
+                .height(30.dp)
                 .border(
                     width = 1.dp,
                     color = borderColor,
@@ -70,28 +82,40 @@ fun JobisDropDown(
                 .background(
                     color = backgroundColor,
                     shape = JobisSize.Shape.Large,
-                ),
+                )
+                .jobisClickable(
+                    rippleEnabled = false,
+                    interactionSource = MutableInteractionSource(),
+                ) {
+                    isExpanded = !isExpanded
+                },
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Caption(
                 modifier = Modifier
-                    .fillMaxWidth(0.76f)
+                    .fillMaxWidth(0.74f)
                     .padding(start = 16.dp),
                 text = dropDownTitle,
             )
             JobisImage(
                 modifier = Modifier.rotate(rotateState),
                 drawable = R.drawable.ic_dropdown,
-                onClick = { isExpanded = !isExpanded }
+                onClick = { isExpanded = !isExpanded },
             )
         }
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        AnimatedVisibility(isExpanded) {
+        Animated(
+            visible = isExpanded,
+        ) {
             Column(
                 modifier = Modifier
                     .width(116.dp)
+                    .height(
+                        height = if(itemList.size >= 5) 94.dp
+                        else (itemList.size * 26).dp
+                    )
                     .border(
                         width = 1.dp,
                         color = borderColor,
@@ -106,18 +130,23 @@ fun JobisDropDown(
                     ),
                 verticalArrangement = Arrangement.Center,
             ) {
-                LazyColumn(
-                    horizontalAlignment = Alignment.CenterHorizontally,
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .verticalScroll(
+                            state = rememberScrollState(),
+                        ),
                 ) {
-                    itemsIndexed(items = itemList) { index, item ->
+                    repeat(itemList.size) {
                         DropDownItem(
-                            text = item,
+                            text = itemList[it],
                             onItemSelected = {
                                 isExpanded = false
-                                dropDownTitle = item
+                                dropDownTitle = itemList[it]
+                                onItemSelected(it)
                             },
                             outLineColor = borderColor,
-                            last = index == itemList.size - 1
+                            last = it == itemList.size - 1,
                         )
                     }
                 }
