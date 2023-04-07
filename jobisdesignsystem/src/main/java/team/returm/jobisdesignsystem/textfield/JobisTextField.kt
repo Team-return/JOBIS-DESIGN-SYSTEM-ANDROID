@@ -27,11 +27,11 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import team.retum.jobisui.colors.JobisColor
 import team.retum.jobisui.colors.TextFieldColor
-import team.retum.jobisui.image.JobisImage
 import team.retum.jobisui.ui.theme.Body4
 import team.retum.jobisui.ui.theme.Caption
 import team.retum.jobisui.ui.theme.JobisTypography
-import team.returm.jobisdesignsystem.R
+import team.returm.jobisdesignsystem.icon.JobisIcon
+import team.returm.jobisdesignsystem.image.JobisImage
 import team.returm.jobisdesignsystem.util.Animated
 import team.returm.jobisdesignsystem.util.JobisSize
 
@@ -118,8 +118,8 @@ fun JobisTextField(
             if (isPassword && value.isNotEmpty()) {
                 JobisImage(
                     onClick = { passwordVisible = !passwordVisible },
-                    drawable = if (passwordVisible) R.drawable.ic_visible_on
-                    else R.drawable.ic_visible_off
+                    drawable = if (passwordVisible) JobisIcon.VisibleOn
+                    else JobisIcon.VisibleOff
                 )
             }
             if (icon != null) {

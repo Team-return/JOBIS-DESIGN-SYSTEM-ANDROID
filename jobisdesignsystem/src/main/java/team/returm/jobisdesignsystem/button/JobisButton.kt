@@ -114,9 +114,9 @@ fun JobisSmallButton(
     color: ButtonColor,
     leftIcon: @Composable (() -> Unit)? = null,
     rightIcon: @Composable (() -> Unit)? = null,
-    onClick: () -> Unit,
     enabled: Boolean = true,
     shadow: Boolean = false,
+    onClick: () -> Unit,
 ) {
     BasicButton(
         modifier = JobisSize.ButtonSize.Default.Small,
@@ -138,9 +138,9 @@ fun JobisMediumButton(
     color: ButtonColor,
     leftIcon: @Composable (() -> Unit)? = null,
     rightIcon: @Composable (() -> Unit)? = null,
-    onClick: () -> Unit,
     enabled: Boolean = true,
     shadow: Boolean = false,
+    onClick: () -> Unit,
 ) {
     BasicButton(
         modifier = JobisSize.ButtonSize.Default.Medium,
@@ -162,9 +162,9 @@ fun JobisLargeButton(
     color: ButtonColor,
     leftIcon: @Composable (() -> Unit)? = null,
     rightIcon: @Composable (() -> Unit)? = null,
-    onClick: () -> Unit,
     enabled: Boolean = true,
     shadow: Boolean = false,
+    onClick: () -> Unit,
 ) {
     BasicButton(
         modifier = JobisSize.ButtonSize.Default.Large,

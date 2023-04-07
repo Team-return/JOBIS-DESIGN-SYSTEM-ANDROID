@@ -30,10 +30,10 @@ import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import team.retum.jobisui.colors.DropDownColor
-import team.retum.jobisui.image.JobisImage
 import team.retum.jobisui.ui.theme.Caption
 import team.retum.jobisui.util.jobisClickable
-import team.returm.jobisdesignsystem.R
+import team.returm.jobisdesignsystem.icon.JobisIcon
+import team.returm.jobisdesignsystem.image.JobisImage
 import team.returm.jobisdesignsystem.util.Animated
 import team.returm.jobisdesignsystem.util.JobisSize
 
@@ -99,7 +99,7 @@ fun JobisDropDown(
             )
             JobisImage(
                 modifier = Modifier.rotate(rotateState),
-                drawable = R.drawable.ic_arrow_down,
+                drawable = JobisIcon.DownArrow,
                 onClick = { isExpanded = !isExpanded },
             )
         }
