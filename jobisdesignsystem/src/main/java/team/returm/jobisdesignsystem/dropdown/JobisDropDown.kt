@@ -13,8 +13,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Divider
@@ -88,13 +86,14 @@ fun JobisDropDown(
                     interactionSource = MutableInteractionSource(),
                 ) {
                     isExpanded = !isExpanded
-                },
+                }
+                .padding(
+                    horizontal = 12.dp,
+                ),
             verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween,
         ) {
             Caption(
-                modifier = Modifier
-                    .fillMaxWidth(0.74f)
-                    .padding(start = 16.dp),
                 text = dropDownTitle,
             )
             JobisImage(
@@ -111,7 +110,7 @@ fun JobisDropDown(
         ) {
             Column(
                 modifier = Modifier
-                    .width(116.dp)
+                    .fillMaxWidth()
                     .height(
                         height = if (itemList.size >= 5) 94.dp
                         else (itemList.size * 26).dp
@@ -181,10 +180,8 @@ fun DropDownItem(
         if (!last) {
             Divider(
                 modifier = Modifier
-                    .size(
-                        width = 148.dp,
-                        height = 1.dp,
-                    )
+                    .fillMaxWidth()
+                    .height(1.dp)
                     .background(
                         color = outLineColor
                     ),
