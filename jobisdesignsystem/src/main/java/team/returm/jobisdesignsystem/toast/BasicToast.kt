@@ -1,4 +1,4 @@
-package team.returm.jobisdesignsystem.snackbar
+package team.returm.jobisdesignsystem.toast
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -25,7 +24,7 @@ import team.returm.jobisdesignsystem.util.Animated
 import team.returm.jobisdesignsystem.util.JobisSize
 
 @Composable
-fun BasicSnackBar(
+fun BasicToast(
     title: String? = null,
     message: String,
     onCloseClick: () -> Unit,
@@ -34,10 +33,8 @@ fun BasicSnackBar(
 ) {
     Row(
         modifier = Modifier
-            .size(
-                width = 316.dp,
-                height = 70.dp,
-            )
+            .fillMaxWidth()
+            .height(70.dp)
             .shadow(
                 elevation = 6.dp,
                 shape = JobisSize.Shape.Big,
@@ -88,13 +85,13 @@ fun BasicSnackBar(
 }
 
 @Composable
-fun JobisSnackBar(
-    isShowSnackBar: Boolean,
+fun JobisToast(
+    isShowToast: Boolean,
     title: String? = null,
     message: String,
-    onCloseClick: () -> Unit,
     messageColor: Color,
-    icon: @Composable () -> Unit,
+    drawable: Int,
+    onCloseClick: () -> Unit,
 ) {
 
     Box(
@@ -102,15 +99,17 @@ fun JobisSnackBar(
     ) {
         Column {
             Animated(
-                visible = isShowSnackBar,
+                visible = isShowToast,
             ) {
-                BasicSnackBar(
+                BasicToast(
                     title = title,
                     message = message,
                     onCloseClick = onCloseClick,
                     messageColor = messageColor,
                 ) {
-                    icon()
+                    JobisImage(
+                        drawable = drawable,
+                    )
                 }
             }
         }
