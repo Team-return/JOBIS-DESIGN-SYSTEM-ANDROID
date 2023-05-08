@@ -75,6 +75,7 @@ fun BasicButton(
             .jobisClickable(
                 interactionSource = interactionSource,
                 onClick = onClick,
+                enabled = enabled,
             )
             .border(
                 width = 1.5.dp,
