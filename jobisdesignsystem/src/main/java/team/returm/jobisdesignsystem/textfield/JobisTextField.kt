@@ -63,10 +63,13 @@ fun JobisTextField(
     else if (isFocused) color.focusedColor.fieldTextColor
     else color.unFocusedColor.fieldTextColor
 
+    val helperTextColor = if(isError) color.errorColor.helperTextColor
+    else color.unFocusedColor.helperTextColor
+
     val textFieldWidth = if (isPassword) 0.9f else 1f
 
     Box(
-        modifier = Modifier.height(90.dp),
+        modifier = Modifier.height(180.dp),
     ) {
         Column {
             if (fieldText != null) {
@@ -126,18 +129,11 @@ fun JobisTextField(
             }
             divider?.invoke()
             if (enabled) {
-                if (errorText != null && isError) {
-                    Caption(
-                        color = color.errorColor.helperTextColor,
-                        text = errorText,
-                    )
-                }
-                if (helperText != null) {
-                    Caption(
-                        color = color.unFocusedColor.helperTextColor,
-                        text = helperText,
-                    )
-                }
+                Caption(
+                    text = if(isError) errorText ?: ""
+                    else helperText ?: "",
+                    color = helperTextColor,
+                )
             }
         }
     }
