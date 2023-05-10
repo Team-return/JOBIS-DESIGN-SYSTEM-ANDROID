@@ -1,5 +1,6 @@
 package team.returm.jobisdesignsystem.textfield
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -37,27 +38,22 @@ import team.returm.jobisdesignsystem.util.JobisSize
 
 @Composable
 fun JobisTextField(
-    modifier: Modifier = Modifier,
-    fieldText: String? = null,
-    helperText: String? = null,
+    modifier: Modifier,
+    fieldText: String?,
+    helperText: String?,
     value: String,
     hint: String,
     color: TextFieldColor,
     onValueChanged: (String) -> Unit,
-    imeAction: ImeAction = ImeAction.Done,
-    keyboardType: KeyboardType = KeyboardType.Text,
-    keyboardOptions: KeyboardOptions = KeyboardOptions(
-        keyboardType = keyboardType,
-        imeAction = imeAction,
-    ),
+    imeAction: ImeAction,
+    keyboardType: KeyboardType,
     isPassword: Boolean,
-    keyboardActions: KeyboardActions = KeyboardActions.Default,
+    keyboardActions: KeyboardActions,
     enabled: Boolean,
     error: Boolean,
     divider: @Composable (() -> Unit)? = null,
     isFocused: Boolean,
-    isBox: Boolean = false,
-    icon: @Composable (() -> Unit)? = null,
+    icon: @Composable (() -> Unit)?,
 ) {
 
     var passwordVisible by remember { mutableStateOf(false) }
@@ -78,7 +74,7 @@ fun JobisTextField(
                 color = fieldTextColor,
                 text = fieldText,
             )
-            if (isBox) {
+            if (divider == null) {
                 Spacer(modifier = Modifier.height(8.dp))
             }
         }
@@ -88,12 +84,16 @@ fun JobisTextField(
         ) {
             BasicTextField(
                 value = value,
-                onValueChanged,
+                onValueChange = onValueChanged,
                 modifier = Modifier.fillMaxWidth(textFieldWidth),
                 singleLine = true,
-                visualTransformation = if (!passwordVisible && isPassword) PasswordVisualTransformation() else VisualTransformation.None,
+                visualTransformation = if (!passwordVisible && isPassword) PasswordVisualTransformation()
+                else VisualTransformation.None,
                 maxLines = 1,
-                keyboardOptions = keyboardOptions,
+                keyboardOptions = KeyboardOptions(
+                    keyboardType = keyboardType,
+                    imeAction = imeAction,
+                ),
                 keyboardActions = keyboardActions,
                 textStyle = JobisTypography.subtitle2,
                 enabled = enabled,
@@ -122,13 +122,9 @@ fun JobisTextField(
                     else JobisIcon.VisibleOff
                 )
             }
-            if (icon != null) {
-                icon()
-            }
+            icon?.invoke()
         }
-        if (divider != null) {
-            divider()
-        }
+        divider?.invoke()
         if (helperText != null && enabled) {
             Animated(
                 visible = error,
@@ -152,8 +148,66 @@ fun JobisBoxTextField(
     enabled: Boolean = true,
     hint: String,
     isPassword: Boolean = false,
+    imeAction: ImeAction = ImeAction.Done,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
-    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
+    keyboardType: KeyboardType = KeyboardType.Text,
+    fieldText: String? = null,
+    helperText: String? = null,
+    icon: @Composable (() -> Unit)? = null,
+) {
+
+    var isFocused by remember { mutableStateOf(false) }
+
+    val outLineColor = if (!enabled) color.disabledColor.outLineColor
+    else if (error) color.errorColor.outLineColor
+    else if (isFocused) color.focusedColor.outLineColor
+    else color.unFocusedColor.outLineColor
+
+    val backgroundColor = if (enabled) JobisColor.Gray100
+    else JobisColor.Gray300
+
+    JobisTextField(
+        modifier = JobisSize.TextFieldSize.Main
+            .border(
+                width = 1.dp,
+                shape = JobisSize.Shape.Tiny,
+                color = outLineColor,
+            )
+            .background(
+                color = backgroundColor,
+                shape = JobisSize.Shape.Tiny,
+            )
+            .onFocusChanged {
+                isFocused = it.isFocused
+            },
+        fieldText = fieldText,
+        helperText = helperText,
+        value = value,
+        hint = hint,
+        color = color,
+        onValueChanged = onValueChanged,
+        imeAction = imeAction,
+        keyboardType = keyboardType,
+        isPassword = isPassword,
+        keyboardActions = keyboardActions,
+        enabled = enabled,
+        error = error,
+        isFocused = isFocused,
+        icon = icon,
+    )
+}
+
+@Composable
+fun JobisUnderLineTextField(
+    color: TextFieldColor,
+    onValueChanged: (String) -> Unit,
+    value: String,
+    error: Boolean = false,
+    enabled: Boolean = true,
+    hint: String,
+    isPassword: Boolean = false,
+    imeAction: ImeAction = ImeAction.Done,
+    keyboardActions: KeyboardActions = KeyboardActions.Default,
     keyboardType: KeyboardType = KeyboardType.Text,
     fieldText: String? = null,
     helperText: String? = null,
@@ -169,74 +223,21 @@ fun JobisBoxTextField(
 
     JobisTextField(
         modifier = JobisSize.TextFieldSize.Main
-            .border(
-                width = 1.dp,
-                shape = JobisSize.Shape.Tiny,
-                color = outLineColor,
-            )
             .onFocusChanged {
                 isFocused = it.isFocused
             },
-        onValueChanged = onValueChanged,
-        value = value,
-        hint = hint,
-        enabled = enabled,
         fieldText = fieldText,
         helperText = helperText,
-        error = error,
-        isFocused = isFocused,
-        color = color,
-        isPassword = isPassword,
-        keyboardActions = keyboardActions,
-        keyboardOptions = keyboardOptions,
-        keyboardType = keyboardType,
-        isBox = true,
-        icon = icon,
-    )
-}
-
-@Composable
-fun JobisUnderLineTextField(
-    color: TextFieldColor,
-    onValueChanged: (String) -> Unit,
-    value: String,
-    error: Boolean = false,
-    enabled: Boolean = true,
-    hint: String,
-    isPassword: Boolean = false,
-    keyboardActions: KeyboardActions = KeyboardActions.Default,
-    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
-    keyboardType: KeyboardType = KeyboardType.Text,
-    fieldText: String? = null,
-    helperText: String? = null,
-    icon: @Composable (() -> Unit)? = null
-) {
-
-    var isFocused by remember { mutableStateOf(false) }
-
-    val outLineColor = if (!enabled) color.disabledColor.outLineColor
-    else if (error) color.errorColor.outLineColor
-    else if (isFocused) color.focusedColor.outLineColor
-    else color.unFocusedColor.outLineColor
-
-    JobisTextField(
-        modifier = JobisSize.TextFieldSize.Main
-            .onFocusChanged {
-                isFocused = it.isFocused
-            },
-        onValueChanged = onValueChanged,
         value = value,
         hint = hint,
-        enabled = enabled,
-        fieldText = fieldText,
-        helperText = helperText,
-        error = error,
-        isFocused = isFocused,
         color = color,
+        onValueChanged = onValueChanged,
+        imeAction = imeAction,
+        keyboardType = keyboardType,
         isPassword = isPassword,
         keyboardActions = keyboardActions,
-        keyboardOptions = keyboardOptions,
-        keyboardType = keyboardType,
+        enabled = enabled,
+        error = error,
         divider = {
             Divider(
                 modifier = JobisSize.TextFieldSize.UnderLine
@@ -246,6 +247,7 @@ fun JobisUnderLineTextField(
                     )
             )
         },
+        isFocused = isFocused,
         icon = icon,
     )
 }
