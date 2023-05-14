@@ -1,4 +1,4 @@
-package team.retum.jobisui.switch
+package team.returm.jobisdesignsystem.switch
 
 import androidx.compose.material.Switch
 import androidx.compose.material.SwitchDefaults
@@ -10,11 +10,11 @@ fun JobisSwitch(
     color: SwitchColor,
     enabled: Boolean = true,
     isChecked: Boolean,
-    onCheckedChange: (Boolean) -> Unit,
+    onChecked: (Boolean) -> Unit,
 ) {
     Switch(
         checked = isChecked,
-        onCheckedChange = onCheckedChange,
+        onCheckedChange = onChecked,
         colors = SwitchDefaults.colors(
             checkedThumbColor = color.checkedColor.thumbColor,
             checkedTrackColor = color.checkedColor.trackColor,
