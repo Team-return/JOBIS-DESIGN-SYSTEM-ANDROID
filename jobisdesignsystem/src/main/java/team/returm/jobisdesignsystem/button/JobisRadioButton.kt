@@ -1,4 +1,4 @@
-package team.retum.jobisui.button
+package team.returm.jobisdesignsystem.button
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -22,7 +22,7 @@ fun JobisRadioButton(
     color: CheckBoxColor,
     enabled: Boolean = true,
     isChecked: Boolean,
-    onClick: (Boolean) -> Unit,
+    onChecked: (Boolean) -> Unit,
 ) {
 
     val outLineColor: Color
@@ -48,7 +48,7 @@ fun JobisRadioButton(
                 enabled = enabled,
                 interactionSource = remember { MutableInteractionSource() }
             ) {
-                onClick(!isChecked)
+                onChecked(!isChecked)
             }
             .border(
                 width = 1.5.dp,
@@ -57,7 +57,7 @@ fun JobisRadioButton(
             ),
         contentAlignment = Alignment.Center,
     ) {
-        if (enabled || isChecked) {
+        if (isChecked) {
             Divider(
                 modifier = Modifier
                     .size(10.dp)

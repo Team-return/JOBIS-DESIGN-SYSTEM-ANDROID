@@ -63,14 +63,14 @@ object JobisIcon {
     val Trash = R.drawable.ic_trash
 
     @Stable
-    val SnackBarChat = R.drawable.ic_snack_bar_chat
+    val SnackBarChat = R.drawable.ic_toast_chat
 
     @Stable
-    val SnackBarCheck = R.drawable.ic_snack_bar_check
+    val SnackBarCheck = R.drawable.ic_toast_check
 
     @Stable
-    val SnackBarError = R.drawable.ic_snack_bar_error
+    val SnackBarError = R.drawable.ic_toast_error
 
     @Stable
-    val SnackBarWarning = R.drawable.ic_snack_bar_warning
+    val SnackBarWarning = R.drawable.ic_toast_warning
 }

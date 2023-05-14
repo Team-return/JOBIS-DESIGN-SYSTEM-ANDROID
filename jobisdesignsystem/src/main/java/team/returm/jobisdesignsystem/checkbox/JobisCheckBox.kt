@@ -21,7 +21,7 @@ fun JobisCheckBox(
     color: CheckBoxColor,
     enabled: Boolean = true,
     isChecked: Boolean,
-    onClick: (Boolean) -> Unit,
+    onChecked: (Boolean) -> Unit,
 ) {
 
     val outLineColor: Color
@@ -47,7 +47,7 @@ fun JobisCheckBox(
                 enabled = enabled,
                 interactionSource = remember { MutableInteractionSource() }
             ) {
-                onClick(!isChecked)
+                onChecked(!isChecked)
             }
             .border(
                 width = 1.5.dp,
