@@ -1,4 +1,4 @@
-package team.retum.jobisui.button
+package team.returm.jobisdesignsystem.button
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
