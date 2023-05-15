@@ -68,9 +68,7 @@ fun JobisTextField(
 
     val textFieldWidth = if (isPassword) 0.9f else 1f
 
-    Box(
-        modifier = Modifier.height(180.dp),
-    ) {
+    Box {
         Column {
             if (fieldText != null) {
                 Body4(
