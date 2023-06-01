@@ -50,7 +50,7 @@ fun JobisTextField(
     isPassword: Boolean,
     keyboardActions: KeyboardActions,
     enabled: Boolean,
-    isError: Boolean,
+    error: Boolean,
     divider: @Composable (() -> Unit)? = null,
     isFocused: Boolean,
     icon: @Composable (() -> Unit)?,
@@ -59,11 +59,11 @@ fun JobisTextField(
     var passwordVisible by remember { mutableStateOf(false) }
 
     val fieldTextColor = if (!enabled) color.disabledColor.fieldTextColor
-    else if (isError) color.errorColor.fieldTextColor
+    else if (error) color.errorColor.fieldTextColor
     else if (isFocused) color.focusedColor.fieldTextColor
     else color.unFocusedColor.fieldTextColor
 
-    val helperTextColor = if(isError) color.errorColor.helperTextColor
+    val helperTextColor = if(error) color.errorColor.helperTextColor
     else color.unFocusedColor.helperTextColor
 
     val textFieldWidth = if (isPassword) 0.9f else 1f
@@ -126,9 +126,10 @@ fun JobisTextField(
                 icon?.invoke()
             }
             divider?.invoke()
-            if (enabled) {
+            if (enabled && (helperText != null || errorText != null)) {
+                Spacer(modifier = Modifier.height(2.dp))
                 Caption(
-                    text = if(isError) errorText ?: ""
+                    text = if(error) errorText ?: ""
                     else helperText ?: "",
                     color = helperTextColor,
                 )
@@ -142,7 +143,7 @@ fun JobisBoxTextField(
     color: TextFieldColor,
     onValueChanged: (String) -> Unit,
     value: String,
-    isError: Boolean = false,
+    error: Boolean = false,
     enabled: Boolean = true,
     hint: String,
     isPassword: Boolean = false,
@@ -158,7 +159,7 @@ fun JobisBoxTextField(
     var isFocused by remember { mutableStateOf(false) }
 
     val outLineColor = if (!enabled) color.disabledColor.outLineColor
-    else if (isError) color.errorColor.outLineColor
+    else if (error) color.errorColor.outLineColor
     else if (isFocused) color.focusedColor.outLineColor
     else color.unFocusedColor.outLineColor
 
@@ -191,7 +192,7 @@ fun JobisBoxTextField(
         isPassword = isPassword,
         keyboardActions = keyboardActions,
         enabled = enabled,
-        isError = isError,
+        error = error,
         isFocused = isFocused,
         icon = icon,
     )
@@ -239,7 +240,7 @@ fun JobisUnderLineTextField(
         isPassword = isPassword,
         keyboardActions = keyboardActions,
         enabled = enabled,
-        isError = isError,
+        error = isError,
         divider = {
             Divider(
                 modifier = JobisSize.TextFieldSize.UnderLine
