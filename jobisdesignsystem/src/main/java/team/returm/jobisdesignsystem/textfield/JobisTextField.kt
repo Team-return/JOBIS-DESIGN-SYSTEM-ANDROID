@@ -28,9 +28,9 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import team.retum.jobisui.colors.JobisColor
 import team.retum.jobisui.colors.TextFieldColor
-import team.retum.jobisui.ui.theme.Body4
-import team.retum.jobisui.ui.theme.Caption
-import team.retum.jobisui.ui.theme.JobisTypography
+import team.returm.jobisdesignsystem.theme.Body4
+import team.returm.jobisdesignsystem.theme.Caption
+import team.returm.jobisdesignsystem.theme.JobisTypography
 import team.returm.jobisdesignsystem.icon.JobisIcon
 import team.returm.jobisdesignsystem.image.JobisImage
 import team.returm.jobisdesignsystem.util.JobisSize

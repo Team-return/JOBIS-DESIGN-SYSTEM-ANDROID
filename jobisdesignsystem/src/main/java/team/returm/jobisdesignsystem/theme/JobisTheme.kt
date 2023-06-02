@@ -7,6 +7,7 @@ import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.staticCompositionLocalOf
 import team.retum.jobisui.colors.JobisColor
+import team.returm.jobisdesignsystem.theme.JobisTypography
 
 private val DarkColorPalette = darkColors(
 

@@ -16,8 +16,8 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import team.retum.jobisui.colors.JobisColor
-import team.retum.jobisui.ui.theme.Body3
-import team.retum.jobisui.ui.theme.Body4
+import team.returm.jobisdesignsystem.theme.Body3
+import team.returm.jobisdesignsystem.theme.Body4
 import team.returm.jobisdesignsystem.icon.JobisIcon
 import team.returm.jobisdesignsystem.image.JobisImage
 import team.returm.jobisdesignsystem.util.Animated
