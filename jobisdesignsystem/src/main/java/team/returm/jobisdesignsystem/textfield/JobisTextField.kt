@@ -47,10 +47,11 @@ fun JobisTextField(
     onValueChanged: (String) -> Unit,
     imeAction: ImeAction,
     keyboardType: KeyboardType,
-    isPassword: Boolean,
+    textFieldType: TextFieldType?,
+    onIconClick: (() -> Unit)?,
     keyboardActions: KeyboardActions,
     enabled: Boolean,
-    isError: Boolean,
+    error: Boolean,
     divider: @Composable (() -> Unit)? = null,
     isFocused: Boolean,
     icon: @Composable (() -> Unit)?,
@@ -59,14 +60,14 @@ fun JobisTextField(
     var passwordVisible by remember { mutableStateOf(false) }
 
     val fieldTextColor = if (!enabled) color.disabledColor.fieldTextColor
-    else if (isError) color.errorColor.fieldTextColor
+    else if (error) color.errorColor.fieldTextColor
     else if (isFocused) color.focusedColor.fieldTextColor
     else color.unFocusedColor.fieldTextColor
 
-    val helperTextColor = if(isError) color.errorColor.helperTextColor
+    val helperTextColor = if (error) color.errorColor.helperTextColor
     else color.unFocusedColor.helperTextColor
 
-    val textFieldWidth = if (isPassword) 0.9f else 1f
+    val textFieldWidth = if (textFieldType != null) 0.9f else 1f
 
     Box {
         Column {
@@ -88,7 +89,7 @@ fun JobisTextField(
                     onValueChange = onValueChanged,
                     modifier = Modifier.fillMaxWidth(textFieldWidth),
                     singleLine = true,
-                    visualTransformation = if (!passwordVisible && isPassword) PasswordVisualTransformation()
+                    visualTransformation = if (!passwordVisible && textFieldType == TextFieldType.PASSWORD) PasswordVisualTransformation()
                     else VisualTransformation.None,
                     maxLines = 1,
                     keyboardOptions = KeyboardOptions(
@@ -116,19 +117,33 @@ fun JobisTextField(
                         }
                     }
                 }
-                if (isPassword && value.isNotEmpty()) {
-                    JobisImage(
-                        onClick = { passwordVisible = !passwordVisible },
-                        drawable = if (passwordVisible) JobisIcon.VisibleOn
-                        else JobisIcon.VisibleOff
-                    )
+                if(textFieldType != null) {
+                    when (textFieldType) {
+                        TextFieldType.PASSWORD -> {
+                            if (value.isNotEmpty()) {
+                                JobisImage(
+                                    onClick = { passwordVisible = !passwordVisible },
+                                    drawable = if (passwordVisible) JobisIcon.VisibleOn
+                                    else JobisIcon.VisibleOff
+                                )
+                            }
+                        }
+
+                        TextFieldType.SEARCH -> {
+                            JobisImage(
+                                onClick = onIconClick,
+                                drawable = JobisIcon.Search,
+                            )
+                        }
+                    }
                 }
                 icon?.invoke()
             }
             divider?.invoke()
-            if (enabled) {
+            if (enabled && (helperText != null || errorText != null)) {
+                Spacer(modifier = Modifier.height(2.dp))
                 Caption(
-                    text = if(isError) errorText ?: ""
+                    text = if (error) errorText ?: ""
                     else helperText ?: "",
                     color = helperTextColor,
                 )
@@ -142,10 +157,11 @@ fun JobisBoxTextField(
     color: TextFieldColor,
     onValueChanged: (String) -> Unit,
     value: String,
-    isError: Boolean = false,
+    error: Boolean = false,
     enabled: Boolean = true,
     hint: String,
-    isPassword: Boolean = false,
+    textFieldType: TextFieldType? = null,
+    onIconClick: (() -> Unit)? = null,
     imeAction: ImeAction = ImeAction.Done,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     keyboardType: KeyboardType = KeyboardType.Text,
@@ -158,7 +174,7 @@ fun JobisBoxTextField(
     var isFocused by remember { mutableStateOf(false) }
 
     val outLineColor = if (!enabled) color.disabledColor.outLineColor
-    else if (isError) color.errorColor.outLineColor
+    else if (error) color.errorColor.outLineColor
     else if (isFocused) color.focusedColor.outLineColor
     else color.unFocusedColor.outLineColor
 
@@ -188,10 +204,11 @@ fun JobisBoxTextField(
         onValueChanged = onValueChanged,
         imeAction = imeAction,
         keyboardType = keyboardType,
-        isPassword = isPassword,
+        onIconClick = onIconClick,
+        textFieldType = textFieldType,
         keyboardActions = keyboardActions,
         enabled = enabled,
-        isError = isError,
+        error = error,
         isFocused = isFocused,
         icon = icon,
     )
@@ -202,10 +219,11 @@ fun JobisUnderLineTextField(
     color: TextFieldColor,
     onValueChanged: (String) -> Unit,
     value: String,
-    isError: Boolean = false,
+    error: Boolean = false,
     enabled: Boolean = true,
     hint: String,
-    isPassword: Boolean = false,
+    textFieldType: TextFieldType? = null,
+    onIconClick: (() -> Unit)? = null,
     imeAction: ImeAction = ImeAction.Done,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     keyboardType: KeyboardType = KeyboardType.Text,
@@ -218,7 +236,7 @@ fun JobisUnderLineTextField(
     var isFocused by remember { mutableStateOf(false) }
 
     val outLineColor = if (!enabled) color.disabledColor.outLineColor
-    else if (isError) color.errorColor.outLineColor
+    else if (error) color.errorColor.outLineColor
     else if (isFocused) color.focusedColor.outLineColor
     else color.unFocusedColor.outLineColor
 
@@ -236,10 +254,11 @@ fun JobisUnderLineTextField(
         onValueChanged = onValueChanged,
         imeAction = imeAction,
         keyboardType = keyboardType,
-        isPassword = isPassword,
+        onIconClick = onIconClick,
+        textFieldType = textFieldType,
         keyboardActions = keyboardActions,
         enabled = enabled,
-        isError = isError,
+        error = error,
         divider = {
             Divider(
                 modifier = JobisSize.TextFieldSize.UnderLine
