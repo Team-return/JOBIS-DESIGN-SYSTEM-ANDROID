@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Shape
 import team.retum.jobisui.colors.ButtonColor
-import team.retum.jobisui.ui.theme.JobisTypography
+import team.returm.jobisdesignsystem.theme.JobisTypography
 import team.returm.jobisdesignsystem.image.JobisImage
 import team.returm.jobisdesignsystem.util.JobisSize
 

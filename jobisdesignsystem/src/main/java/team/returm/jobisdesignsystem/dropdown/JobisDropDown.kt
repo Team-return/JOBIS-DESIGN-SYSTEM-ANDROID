@@ -28,7 +28,7 @@ import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import team.retum.jobisui.colors.DropDownColor
-import team.retum.jobisui.ui.theme.Caption
+import team.returm.jobisdesignsystem.theme.Caption
 import team.retum.jobisui.util.jobisClickable
 import team.returm.jobisdesignsystem.icon.JobisIcon
 import team.returm.jobisdesignsystem.image.JobisImage

@@ -1,20 +1,23 @@
-package team.retum.jobisui.ui.theme
+package team.returm.jobisdesignsystem.theme
 
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.Stable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.ExperimentalTextApi
 import androidx.compose.ui.text.PlatformTextStyle
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.sp
 import team.retum.jobisui.colors.JobisColor
 import team.returm.jobisdesignsystem.R
+
+@Stable
+val maxLine = 1000
 
 @Stable
 val notosansFamily = FontFamily(
@@ -28,12 +31,10 @@ val notosansFamily = FontFamily(
 
 object JobisTypography {
 
-    @OptIn(ExperimentalTextApi::class)
     private val platFormTextStyle = PlatformTextStyle(
         includeFontPadding = false,
     )
 
-    @OptIn(ExperimentalTextApi::class)
     @Stable
     val h1 = TextStyle(
         fontFamily = notosansFamily,
@@ -43,7 +44,6 @@ object JobisTypography {
         platformStyle = platFormTextStyle,
     )
 
-    @OptIn(ExperimentalTextApi::class)
     @Stable
     val h2 = TextStyle(
         fontFamily = notosansFamily,
@@ -53,7 +53,6 @@ object JobisTypography {
         platformStyle = platFormTextStyle,
     )
 
-    @OptIn(ExperimentalTextApi::class)
     @Stable
     val h3 = TextStyle(
         fontFamily = notosansFamily,
@@ -63,7 +62,6 @@ object JobisTypography {
         platformStyle = platFormTextStyle,
     )
 
-    @OptIn(ExperimentalTextApi::class)
     @Stable
     val h4 = TextStyle(
         fontFamily = notosansFamily,
@@ -73,7 +71,6 @@ object JobisTypography {
         platformStyle = platFormTextStyle,
     )
 
-    @OptIn(ExperimentalTextApi::class)
     @Stable
     val h5 = TextStyle(
         fontFamily = notosansFamily,
@@ -83,7 +80,6 @@ object JobisTypography {
         platformStyle = platFormTextStyle,
     )
 
-    @OptIn(ExperimentalTextApi::class)
     @Stable
     val h6 = TextStyle(
         fontFamily = notosansFamily,
@@ -93,7 +89,6 @@ object JobisTypography {
         platformStyle = platFormTextStyle,
     )
 
-    @OptIn(ExperimentalTextApi::class)
     @Stable
     val body1 = TextStyle(
         fontFamily = notosansFamily,
@@ -103,7 +98,6 @@ object JobisTypography {
         platformStyle = platFormTextStyle,
     )
 
-    @OptIn(ExperimentalTextApi::class)
     @Stable
     val body2 = TextStyle(
         fontFamily = notosansFamily,
@@ -113,7 +107,6 @@ object JobisTypography {
         platformStyle = platFormTextStyle,
     )
 
-    @OptIn(ExperimentalTextApi::class)
     @Stable
     val subtitle1 = TextStyle(
         fontFamily = notosansFamily,
@@ -123,7 +116,6 @@ object JobisTypography {
         platformStyle = platFormTextStyle,
     )
 
-    @OptIn(ExperimentalTextApi::class)
     @Stable
     val subtitle2 = TextStyle(
         fontFamily = notosansFamily,
@@ -133,7 +125,6 @@ object JobisTypography {
         platformStyle = platFormTextStyle,
     )
 
-    @OptIn(ExperimentalTextApi::class)
     @Stable
     val caption = TextStyle(
         fontFamily = notosansFamily,
@@ -145,11 +136,13 @@ object JobisTypography {
 }
 
 @Composable
-@NonRestartableComposable
 fun Heading1(
     modifier: Modifier = Modifier,
     color: Color = JobisColor.Gray900,
     text: String,
+    decoration: TextDecoration = TextDecoration.None,
+    overflow: TextOverflow = TextOverflow.Ellipsis,
+    maxLines: Int = maxLine,
 ) {
     Text(
         modifier = modifier,
@@ -157,15 +150,20 @@ fun Heading1(
         text = text,
         fontFamily = notosansFamily,
         style = JobisTypography.h1,
+        textDecoration = decoration,
+        overflow = overflow,
+        maxLines = maxLines,
     )
 }
 
 @Composable
-@NonRestartableComposable
 fun Heading2(
     modifier: Modifier = Modifier,
     color: Color = JobisColor.Gray900,
     text: String,
+    decoration: TextDecoration = TextDecoration.None,
+    overflow: TextOverflow = TextOverflow.Ellipsis,
+    maxLines: Int = maxLine,
 ) {
     Text(
         modifier = modifier,
@@ -173,15 +171,20 @@ fun Heading2(
         text = text,
         fontFamily = notosansFamily,
         style = JobisTypography.h2,
+        textDecoration = decoration,
+        overflow = overflow,
+        maxLines = maxLines,
     )
 }
 
 @Composable
-@NonRestartableComposable
 fun Heading3(
     modifier: Modifier = Modifier,
     color: Color = JobisColor.Gray900,
     text: String,
+    decoration: TextDecoration = TextDecoration.None,
+    overflow: TextOverflow = TextOverflow.Ellipsis,
+    maxLines: Int = maxLine,
 ) {
     Text(
         modifier = modifier,
@@ -189,15 +192,20 @@ fun Heading3(
         text = text,
         fontFamily = notosansFamily,
         style = JobisTypography.h3,
+        textDecoration = decoration,
+        overflow = overflow,
+        maxLines = maxLines,
     )
 }
 
 @Composable
-@NonRestartableComposable
 fun Heading4(
     modifier: Modifier = Modifier,
     color: Color = JobisColor.Gray900,
     text: String,
+    decoration: TextDecoration = TextDecoration.None,
+    overflow: TextOverflow = TextOverflow.Ellipsis,
+    maxLines: Int = maxLine,
 ) {
     Text(
         modifier = modifier,
@@ -205,15 +213,20 @@ fun Heading4(
         text = text,
         fontFamily = notosansFamily,
         style = JobisTypography.h4,
+        textDecoration = decoration,
+        overflow = overflow,
+        maxLines = maxLines,
     )
 }
 
 @Composable
-@NonRestartableComposable
 fun Heading5(
     modifier: Modifier = Modifier,
     color: Color = JobisColor.Gray900,
     text: String,
+    decoration: TextDecoration = TextDecoration.None,
+    overflow: TextOverflow = TextOverflow.Ellipsis,
+    maxLines: Int = maxLine,
 ) {
     Text(
         modifier = modifier,
@@ -221,15 +234,20 @@ fun Heading5(
         text = text,
         fontFamily = notosansFamily,
         style = JobisTypography.h5,
+        textDecoration = decoration,
+        overflow = overflow,
+        maxLines = maxLines,
     )
 }
 
 @Composable
-@NonRestartableComposable
 fun Heading6(
     modifier: Modifier = Modifier,
     color: Color = JobisColor.Gray900,
     text: String,
+    decoration: TextDecoration = TextDecoration.None,
+    overflow: TextOverflow = TextOverflow.Ellipsis,
+    maxLines: Int = maxLine,
 ) {
     Text(
         modifier = modifier,
@@ -237,15 +255,20 @@ fun Heading6(
         text = text,
         fontFamily = notosansFamily,
         style = JobisTypography.h6,
+        textDecoration = decoration,
+        overflow = overflow,
+        maxLines = maxLines,
     )
 }
 
 @Composable
-@NonRestartableComposable
 fun Body1(
     modifier: Modifier = Modifier,
     color: Color = JobisColor.Gray900,
     text: String,
+    decoration: TextDecoration = TextDecoration.None,
+    overflow: TextOverflow = TextOverflow.Ellipsis,
+    maxLines: Int = maxLine,
 ) {
     Text(
         modifier = modifier,
@@ -253,15 +276,20 @@ fun Body1(
         text = text,
         fontFamily = notosansFamily,
         style = JobisTypography.body1,
+        textDecoration = decoration,
+        overflow = overflow,
+        maxLines = maxLines,
     )
 }
 
 @Composable
-@NonRestartableComposable
 fun Body2(
     modifier: Modifier = Modifier,
     color: Color = JobisColor.Gray900,
     text: String,
+    decoration: TextDecoration = TextDecoration.None,
+    overflow: TextOverflow = TextOverflow.Ellipsis,
+    maxLines: Int = maxLine,
 ) {
     Text(
         modifier = modifier,
@@ -269,15 +297,20 @@ fun Body2(
         text = text,
         fontFamily = notosansFamily,
         style = JobisTypography.body2,
+        textDecoration = decoration,
+        overflow = overflow,
+        maxLines = maxLines,
     )
 }
 
 @Composable
-@NonRestartableComposable
 fun Body3(
     modifier: Modifier = Modifier,
     color: Color = JobisColor.Gray900,
     text: String,
+    decoration: TextDecoration = TextDecoration.None,
+    overflow: TextOverflow = TextOverflow.Ellipsis,
+    maxLines: Int = maxLine,
 ) {
     Text(
         modifier = modifier,
@@ -285,15 +318,20 @@ fun Body3(
         text = text,
         fontFamily = notosansFamily,
         style = JobisTypography.subtitle1,
+        textDecoration = decoration,
+        overflow = overflow,
+        maxLines = maxLines,
     )
 }
 
 @Composable
-@NonRestartableComposable
 fun Body4(
     modifier: Modifier = Modifier,
     color: Color = JobisColor.Gray900,
     text: String,
+    decoration: TextDecoration = TextDecoration.None,
+    overflow: TextOverflow = TextOverflow.Ellipsis,
+    maxLines: Int = maxLine,
 ) {
     Text(
         modifier = modifier,
@@ -301,15 +339,20 @@ fun Body4(
         text = text,
         fontFamily = notosansFamily,
         style = JobisTypography.subtitle2,
+        textDecoration = decoration,
+        overflow = overflow,
+        maxLines = maxLines,
     )
 }
 
 @Composable
-@NonRestartableComposable
 fun Caption(
     modifier: Modifier = Modifier,
     color: Color = JobisColor.Gray900,
     text: String,
+    decoration: TextDecoration = TextDecoration.None,
+    overflow: TextOverflow = TextOverflow.Ellipsis,
+    maxLines: Int = maxLine,
 ) {
     Text(
         modifier = modifier,
@@ -317,6 +360,9 @@ fun Caption(
         text = text,
         fontFamily = notosansFamily,
         style = JobisTypography.caption,
+        textDecoration = decoration,
+        overflow = overflow,
+        maxLines = maxLines,
     )
 }
 
