@@ -27,6 +27,7 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import team.retum.jobisui.colors.JobisColor
+import team.retum.jobisui.colors.JobisTextFieldColor
 import team.retum.jobisui.colors.TextFieldColor
 import team.returm.jobisdesignsystem.theme.Body4
 import team.returm.jobisdesignsystem.theme.Caption
@@ -36,7 +37,7 @@ import team.returm.jobisdesignsystem.image.JobisImage
 import team.returm.jobisdesignsystem.util.JobisSize
 
 @Composable
-fun JobisTextField(
+fun JobisBasicTextField(
     modifier: Modifier,
     fieldText: String?,
     helperText: String?,
@@ -154,7 +155,7 @@ fun JobisTextField(
 
 @Composable
 fun JobisBoxTextField(
-    color: TextFieldColor,
+    color: TextFieldColor = JobisTextFieldColor.MainColor,
     onValueChanged: (String) -> Unit,
     value: String,
     error: Boolean = false,
@@ -181,7 +182,7 @@ fun JobisBoxTextField(
     val backgroundColor = if (enabled) JobisColor.Gray100
     else JobisColor.Gray300
 
-    JobisTextField(
+    JobisBasicTextField(
         modifier = JobisSize.TextFieldSize.Main
             .border(
                 width = 1.dp,
@@ -216,7 +217,7 @@ fun JobisBoxTextField(
 
 @Composable
 fun JobisUnderLineTextField(
-    color: TextFieldColor,
+    color: TextFieldColor = JobisTextFieldColor.UnderLineColor,
     onValueChanged: (String) -> Unit,
     value: String,
     error: Boolean = false,
@@ -240,7 +241,7 @@ fun JobisUnderLineTextField(
     else if (isFocused) color.focusedColor.outLineColor
     else color.unFocusedColor.outLineColor
 
-    JobisTextField(
+    JobisBasicTextField(
         modifier = JobisSize.TextFieldSize.Main
             .onFocusChanged {
                 isFocused = it.isFocused

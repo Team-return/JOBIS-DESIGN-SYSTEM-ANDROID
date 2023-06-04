@@ -2,12 +2,10 @@ package team.returm.jobisdesignsystem.button
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.Divider
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -15,12 +13,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import team.retum.jobisui.colors.CheckBoxColor
 import team.returm.jobisdesignsystem.util.JobisSize
-import team.retum.jobisui.util.jobisClickable
+import team.returm.jobisdesignsystem.util.jobisClickable
 
 @Composable
 fun JobisRadioButton(
     color: CheckBoxColor,
     enabled: Boolean = true,
+    rippleEnabled: Boolean = true,
     isChecked: Boolean,
     onChecked: (Boolean) -> Unit,
 ) {
@@ -44,9 +43,8 @@ fun JobisRadioButton(
         modifier = JobisSize.CheckBoxSize.Default
             .clip(shape = JobisSize.Shape.Circle)
             .jobisClickable(
-                rippleEnabled = true,
+                rippleEnabled = rippleEnabled,
                 enabled = enabled,
-                interactionSource = remember { MutableInteractionSource() }
             ) {
                 onChecked(!isChecked)
             }

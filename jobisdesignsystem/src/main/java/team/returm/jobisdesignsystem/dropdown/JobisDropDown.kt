@@ -4,7 +4,6 @@ import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -28,18 +27,19 @@ import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import team.retum.jobisui.colors.DropDownColor
-import team.returm.jobisdesignsystem.theme.Caption
-import team.retum.jobisui.util.jobisClickable
 import team.returm.jobisdesignsystem.icon.JobisIcon
 import team.returm.jobisdesignsystem.image.JobisImage
+import team.returm.jobisdesignsystem.theme.Caption
 import team.returm.jobisdesignsystem.util.Animated
 import team.returm.jobisdesignsystem.util.JobisSize
+import team.returm.jobisdesignsystem.util.jobisClickable
 
 @Composable
 fun JobisDropDown(
     modifier: Modifier = Modifier,
     color: DropDownColor,
     enabled: Boolean = true,
+    rippleEnabled: Boolean = false,
     itemList: List<String>,
     title: String,
     onItemSelected: (Int) -> Unit,
@@ -82,8 +82,7 @@ fun JobisDropDown(
                     shape = JobisSize.Shape.Large,
                 )
                 .jobisClickable(
-                    rippleEnabled = false,
-                    interactionSource = MutableInteractionSource(),
+                    rippleEnabled = rippleEnabled,
                 ) {
                     isExpanded = !isExpanded
                 }
