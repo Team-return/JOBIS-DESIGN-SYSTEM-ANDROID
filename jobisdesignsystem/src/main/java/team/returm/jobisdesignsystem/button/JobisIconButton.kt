@@ -9,7 +9,7 @@ import team.returm.jobisdesignsystem.image.JobisImage
 import team.returm.jobisdesignsystem.util.JobisSize
 
 @Composable
-fun JobisIconButton(
+private fun JobisIconButton(
     drawable: Int,
     color: ButtonColor,
     enabled: Boolean = true,
@@ -26,6 +26,7 @@ fun JobisIconButton(
             JobisImage(
                 drawable = drawable,
                 modifier = imageSize,
+                onClick = onClick,
             )
         },
         color = color,
