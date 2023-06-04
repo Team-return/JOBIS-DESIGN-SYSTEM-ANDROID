@@ -2,19 +2,17 @@ package team.returm.jobisdesignsystem.checkbox
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import team.retum.jobisui.colors.CheckBoxColor
-import team.retum.jobisui.util.jobisClickable
 import team.returm.jobisdesignsystem.icon.JobisIcon
 import team.returm.jobisdesignsystem.image.JobisImage
 import team.returm.jobisdesignsystem.util.JobisSize
+import team.returm.jobisdesignsystem.util.jobisClickable
 
 @Composable
 fun JobisCheckBox(
@@ -45,7 +43,6 @@ fun JobisCheckBox(
             .jobisClickable(
                 rippleEnabled = true,
                 enabled = enabled,
-                interactionSource = remember { MutableInteractionSource() }
             ) {
                 onChecked()
             }

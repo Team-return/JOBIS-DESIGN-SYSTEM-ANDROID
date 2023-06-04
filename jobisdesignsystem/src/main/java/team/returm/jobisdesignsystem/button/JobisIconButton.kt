@@ -14,6 +14,7 @@ private fun JobisIconButton(
     color: ButtonColor,
     enabled: Boolean = true,
     onClick: () -> Unit,
+    rippleEnabled: Boolean,
     modifier: Modifier,
     imageSize: Modifier,
     shape: Shape,
@@ -31,6 +32,7 @@ private fun JobisIconButton(
         },
         color = color,
         enabled = enabled,
+        rippleEnabled = rippleEnabled,
         onClick = onClick,
         shape = shape,
         style = JobisTypography.caption,
@@ -43,6 +45,7 @@ fun JobisSmallIconButton(
     drawable: Int,
     color: ButtonColor,
     enabled: Boolean = true,
+    rippleEnabled: Boolean = false,
     onClick: () -> Unit,
 ) {
     JobisIconButton(
@@ -52,6 +55,7 @@ fun JobisSmallIconButton(
         imageSize = JobisSize.IconSize.Small,
         modifier = JobisSize.ButtonSize.Icon.Medium,
         onClick = onClick,
+        rippleEnabled = rippleEnabled,
         shape = JobisSize.Shape.Circle,
     )
 }
@@ -61,6 +65,7 @@ fun JobisMediumIconButton(
     drawable: Int,
     color: ButtonColor,
     enabled: Boolean = true,
+    rippleEnabled: Boolean = false,
     onClick: () -> Unit,
     shape: Shape,
 ) {
@@ -68,6 +73,7 @@ fun JobisMediumIconButton(
         drawable = drawable,
         color = color,
         enabled = enabled,
+        rippleEnabled = rippleEnabled,
         imageSize = JobisSize.IconSize.Medium,
         modifier = JobisSize.ButtonSize.Icon.Large,
         onClick = onClick,

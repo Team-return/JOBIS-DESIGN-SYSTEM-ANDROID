@@ -6,21 +6,25 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
-import team.retum.jobisui.util.jobisClickable
+import team.returm.jobisdesignsystem.util.jobisClickable
 
 @Composable
 fun JobisImage(
     modifier: Modifier = Modifier,
     drawable: Int,
     onClick: (() -> Unit)? = null,
+    enabled: Boolean = true,
+    rippleEnabled: Boolean = false,
 ) {
     Image(
         painterResource(id = drawable),
         modifier = modifier
             .jobisClickable(
-                interactionSource = remember { MutableInteractionSource() },
-                onClick = onClick ?: {},
-            ),
+                enabled = enabled,
+                rippleEnabled = rippleEnabled,
+            ) {
+                 onClick?.invoke()
+            },
         contentDescription = null,
     )
 }
