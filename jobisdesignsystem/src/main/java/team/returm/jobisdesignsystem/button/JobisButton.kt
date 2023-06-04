@@ -22,19 +22,21 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import team.retum.jobisui.colors.ButtonColor
+import team.retum.jobisui.colors.JobisButtonColor
 import team.returm.jobisdesignsystem.theme.JobisTypography
-import team.retum.jobisui.util.jobisClickable
 import team.returm.jobisdesignsystem.util.JobisSize
+import team.returm.jobisdesignsystem.util.jobisClickable
 
 @Composable
 fun BasicButton(
     modifier: Modifier = Modifier,
     color: ButtonColor,
     shape: Shape,
-    leftIcon: @Composable (() -> Unit)? = null,
-    rightIcon: @Composable (() -> Unit)? = null,
-    centerIcon: @Composable (() -> Unit)? = null,
+    leftIcon: @Composable (() -> Unit)?,
+    rightIcon: @Composable (() -> Unit)?,
+    centerIcon: @Composable (() -> Unit)?,
     onClick: () -> Unit,
+    rippleEnabled: Boolean,
     text: String?,
     style: TextStyle,
     enabled: Boolean,
@@ -73,9 +75,9 @@ fun BasicButton(
             )
             .clip(shape = shape)
             .jobisClickable(
-                interactionSource = interactionSource,
                 onClick = onClick,
                 enabled = enabled,
+                rippleEnabled = rippleEnabled,
             )
             .border(
                 width = 1.5.dp,
@@ -112,10 +114,11 @@ fun BasicButton(
 @Composable
 fun JobisSmallButton(
     text: String,
-    color: ButtonColor,
+    color: ButtonColor = JobisButtonColor.MainSolidColor,
     leftIcon: @Composable (() -> Unit)? = null,
     rightIcon: @Composable (() -> Unit)? = null,
     enabled: Boolean = true,
+    rippleEnabled: Boolean = false,
     shadow: Boolean = false,
     onClick: () -> Unit,
 ) {
@@ -125,9 +128,11 @@ fun JobisSmallButton(
         style = JobisTypography.body2,
         color = color,
         enabled = enabled,
+        rippleEnabled = rippleEnabled,
         shape = JobisSize.Shape.Circle,
         onClick = onClick,
         leftIcon = leftIcon,
+        centerIcon = null,
         rightIcon = rightIcon,
         shadow = shadow,
     )
@@ -136,10 +141,11 @@ fun JobisSmallButton(
 @Composable
 fun JobisMediumButton(
     text: String,
-    color: ButtonColor,
+    color: ButtonColor = JobisButtonColor.MainSolidColor,
     leftIcon: @Composable (() -> Unit)? = null,
     rightIcon: @Composable (() -> Unit)? = null,
     enabled: Boolean = true,
+    rippleEnabled: Boolean = false,
     shadow: Boolean = false,
     onClick: () -> Unit,
 ) {
@@ -151,7 +157,9 @@ fun JobisMediumButton(
         enabled = enabled,
         shape = JobisSize.Shape.Medium,
         onClick = onClick,
+        rippleEnabled = rippleEnabled,
         leftIcon = leftIcon,
+        centerIcon = null,
         rightIcon = rightIcon,
         shadow = shadow,
     )
@@ -160,10 +168,11 @@ fun JobisMediumButton(
 @Composable
 fun JobisLargeButton(
     text: String,
-    color: ButtonColor,
+    color: ButtonColor = JobisButtonColor.MainSolidColor,
     leftIcon: @Composable (() -> Unit)? = null,
     rightIcon: @Composable (() -> Unit)? = null,
     enabled: Boolean = true,
+    rippleEnabled: Boolean = false,
     shadow: Boolean = false,
     onClick: () -> Unit,
 ) {
@@ -173,9 +182,11 @@ fun JobisLargeButton(
         style = JobisTypography.h6,
         color = color,
         enabled = enabled,
+        rippleEnabled = rippleEnabled,
         shape = JobisSize.Shape.Large,
         onClick = onClick,
         leftIcon = leftIcon,
+        centerIcon = null,
         rightIcon = rightIcon,
         shadow = shadow,
     )
