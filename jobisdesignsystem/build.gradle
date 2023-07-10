@@ -53,13 +53,13 @@ afterEvaluate {
                 from components.release
                 groupId = 'team.return.jobis-designsystem'
                 artifactId = 'jobis'
-                version = '1.1.6'
+                version = 'v1.1.6'
             }
             debug(MavenPublication) {
                 from components.debug
                 groupId = 'team.return.jobis-designsystem'
                 artifactId = 'jobis-debug'
-                version = '1.1.6'
+                version = 'v1.1.6'
             }
         }
     }
