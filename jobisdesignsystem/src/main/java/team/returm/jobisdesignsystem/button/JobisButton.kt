@@ -78,6 +78,7 @@ fun BasicButton(
                 onClick = onClick,
                 enabled = enabled,
                 rippleEnabled = rippleEnabled,
+                interactionSource = interactionSource,
             )
             .border(
                 width = 1.5.dp,
