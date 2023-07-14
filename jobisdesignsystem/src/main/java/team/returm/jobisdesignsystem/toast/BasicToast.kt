@@ -1,7 +1,8 @@
 package team.returm.jobisdesignsystem.toast
 
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.gestures.draggable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -20,16 +21,15 @@ import team.returm.jobisdesignsystem.theme.Body3
 import team.returm.jobisdesignsystem.theme.Body4
 import team.returm.jobisdesignsystem.icon.JobisIcon
 import team.returm.jobisdesignsystem.image.JobisImage
-import team.returm.jobisdesignsystem.util.Animated
 import team.returm.jobisdesignsystem.util.JobisSize
 
 @Composable
-fun BasicToast(
+internal fun BasicToast(
     title: String? = null,
     message: String,
-    onCloseClick: () -> Unit,
+    dismissToToast: () -> Unit,
     messageColor: Color,
-    icon: @Composable () -> Unit,
+    @DrawableRes drawable: Int,
 ) {
     Row(
         modifier = Modifier
@@ -48,19 +48,10 @@ fun BasicToast(
             ),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        Spacer(
-            modifier = Modifier.width(20.dp),
-        )
-
-        icon()
-
-        Spacer(
-            modifier = Modifier.width(18.dp)
-        )
-
-        Column(
-            modifier = Modifier.fillMaxWidth(0.85f),
-        ) {
+        Spacer(modifier = Modifier.width(20.dp),)
+        JobisImage(drawable = drawable)
+        Spacer(modifier = Modifier.width(18.dp))
+        Column(modifier = Modifier.fillMaxWidth(0.85f)) {
             if (title != null) {
                 Body3(
                     text = title,
@@ -76,43 +67,9 @@ fun BasicToast(
                 )
             }
         }
-
         JobisImage(
             drawable = JobisIcon.Close,
-            onClick = onCloseClick,
+            onClick = dismissToToast,
         )
     }
 }
-
-@Composable
-fun JobisToast(
-    isShowToast: Boolean,
-    title: String? = null,
-    message: String,
-    messageColor: Color,
-    drawable: Int,
-    onCloseClick: () -> Unit,
-) {
-
-    Box(
-        modifier = Modifier.height(96.dp),
-    ) {
-        Column {
-            Animated(
-                visible = isShowToast,
-            ) {
-                BasicToast(
-                    title = title,
-                    message = message,
-                    onCloseClick = onCloseClick,
-                    messageColor = messageColor,
-                ) {
-                    JobisImage(
-                        drawable = drawable,
-                    )
-                }
-            }
-        }
-    }
-}
-
