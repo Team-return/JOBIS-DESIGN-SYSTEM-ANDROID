@@ -5,7 +5,7 @@ import team.retum.jobisui.colors.JobisColor
 import team.returm.jobisdesignsystem.R
 
 @Composable
-private fun JobisSuccessToast(
+fun JobisSuccessToast(
     message: String,
     title: String? = null,
     dismissToToast: () -> Unit,
@@ -20,7 +20,7 @@ private fun JobisSuccessToast(
 }
 
 @Composable
-private fun JobisNormalToast(
+fun JobisNormalToast(
     message: String,
     title: String? = null,
     dismissToToast: () -> Unit,
@@ -35,7 +35,7 @@ private fun JobisNormalToast(
 }
 
 @Composable
-private fun JobisErrorToast(
+fun JobisErrorToast(
     message: String,
     title: String? = null,
     dismissToToast: () -> Unit,
@@ -50,7 +50,7 @@ private fun JobisErrorToast(
 }
 
 @Composable
-private fun JobisWarningToast(
+fun JobisWarningToast(
     message: String,
     title: String? = null,
     dismissToToast: () -> Unit,
