@@ -51,15 +51,18 @@ afterEvaluate {
         publications {
             release(MavenPublication) {
                 from components.release
-                groupId = 'team.return.jobis-designsystem'
-                artifactId = 'jobis'
-                version = 'v1.1.6'
+
+                // You can then customize attributes of the publication as shown below.
+                groupId = 'team.return.jobis'
+                artifactId = 'designsystem'
+                version = 'v1.2.0'
             }
             debug(MavenPublication) {
                 from components.debug
-                groupId = 'team.return.jobis-designsystem'
-                artifactId = 'jobis-debug'
-                version = 'v1.1.6'
+
+                groupId = 'team.return.jobis'
+                artifactId = 'designsystem-debug'
+                version = 'v1.2.0'
             }
         }
     }
