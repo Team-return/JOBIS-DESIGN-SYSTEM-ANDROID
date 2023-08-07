@@ -1,9 +1,9 @@
-package team.retum.jobisui.colors
+package team.returm.jobisdesignsystem.colors
 
 import androidx.compose.runtime.Stable
 import androidx.compose.ui.graphics.Color
 
-object JobisDropDownColor{
+object JobisDropDownColor {
     @Stable
     val MainColor = DropDownColor(
         disabledColor = DropDownDisabledColor.MainColor,
@@ -21,7 +21,7 @@ data class DropDownColorSet(
     val outLine: Color,
 )
 
-object DropDownEnabledColor{
+object DropDownEnabledColor {
     @Stable
     val MainColor = DropDownColorSet(
         background = JobisColor.Gray100,
@@ -29,7 +29,7 @@ object DropDownEnabledColor{
     )
 }
 
-object DropDownDisabledColor{
+object DropDownDisabledColor {
     @Stable
     val MainColor = DropDownColorSet(
         background = JobisColor.Gray500,

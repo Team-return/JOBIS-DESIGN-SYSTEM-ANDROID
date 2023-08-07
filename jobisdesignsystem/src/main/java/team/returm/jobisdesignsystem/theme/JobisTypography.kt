@@ -13,8 +13,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.sp
-import team.retum.jobisui.colors.JobisColor
 import team.returm.jobisdesignsystem.R
+import team.returm.jobisdesignsystem.colors.JobisColor
 
 @Stable
 val maxLine = 1000

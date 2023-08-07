@@ -2,6 +2,7 @@ package team.retum.jobisui.colors
 
 import androidx.compose.runtime.Stable
 import androidx.compose.ui.graphics.Color
+import team.returm.jobisdesignsystem.colors.JobisColor
 
 object JobisButtonColor {
 

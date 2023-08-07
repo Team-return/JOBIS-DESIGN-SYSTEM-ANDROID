@@ -2,7 +2,6 @@ package team.returm.jobisdesignsystem.toast
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.background
-import androidx.compose.foundation.gestures.draggable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -16,11 +15,11 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import team.retum.jobisui.colors.JobisColor
-import team.returm.jobisdesignsystem.theme.Body3
-import team.returm.jobisdesignsystem.theme.Body4
+import team.returm.jobisdesignsystem.colors.JobisColor
 import team.returm.jobisdesignsystem.icon.JobisIcon
 import team.returm.jobisdesignsystem.image.JobisImage
+import team.returm.jobisdesignsystem.theme.Body3
+import team.returm.jobisdesignsystem.theme.Body4
 import team.returm.jobisdesignsystem.util.JobisSize
 
 @Composable
@@ -48,7 +47,7 @@ internal fun BasicToast(
             ),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        Spacer(modifier = Modifier.width(20.dp),)
+        Spacer(modifier = Modifier.width(20.dp))
         JobisImage(drawable = drawable)
         Spacer(modifier = Modifier.width(18.dp))
         Column(modifier = Modifier.fillMaxWidth(0.85f)) {

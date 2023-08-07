@@ -1,19 +1,22 @@
-package team.retum.jobisui.ui.theme
+package team.returm.jobisdesignsystem.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material.*
+import androidx.compose.material.Colors
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.darkColors
+import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.staticCompositionLocalOf
-import team.retum.jobisui.colors.JobisColor
-import team.returm.jobisdesignsystem.theme.JobisTypography
+import team.retum.jobisui.ui.theme.Shapes
+import team.returm.jobisdesignsystem.colors.JobisColor
 
-private val DarkColorPalette = darkColors(
+private val darkColorPalette = darkColors(
 
 )
 
-private val LightColorPalette = lightColors(
+private val lightColorPalette = lightColors(
     primary = JobisColor.LightBlue,
     primaryVariant = JobisColor.Blue,
     secondary = JobisColor.DarkBlue,
@@ -32,9 +35,9 @@ fun JobisTheme(
     content: @Composable () -> Unit
 ) {
     val colors = if (darkTheme) {
-        DarkColorPalette
+        darkColorPalette
     } else {
-        LightColorPalette
+        lightColorPalette
     }
 
     MaterialTheme(
