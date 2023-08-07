@@ -1,7 +1,7 @@
 package team.returm.jobisdesignsystem.toast
 
 import androidx.compose.runtime.Composable
-import team.retum.jobisui.colors.JobisColor
+import team.returm.jobisdesignsystem.colors.JobisColor
 import team.returm.jobisdesignsystem.R
 
 @Composable
@@ -13,7 +13,7 @@ fun JobisSuccessToast(
     BasicToast(
         message = message,
         title = title,
-        messageColor = JobisColor.Green,
+        textColor = JobisColor.Green,
         drawable = R.drawable.ic_toast_success,
         dismissToToast = dismissToToast,
     )
@@ -28,7 +28,7 @@ fun JobisNormalToast(
     BasicToast(
         message = message,
         title = title,
-        messageColor = JobisColor.Checked,
+        textColor = JobisColor.ToastBlue,
         drawable = R.drawable.ic_toast_normal,
         dismissToToast = dismissToToast,
     )
@@ -43,7 +43,7 @@ fun JobisErrorToast(
     BasicToast(
         message = message,
         title = title,
-        messageColor = JobisColor.Checked,
+        textColor = JobisColor.Red,
         drawable = R.drawable.ic_toast_error,
         dismissToToast = dismissToToast,
     )
@@ -58,7 +58,7 @@ fun JobisWarningToast(
     BasicToast(
         message = message,
         title = title,
-        messageColor = JobisColor.Checked,
+        textColor = JobisColor.Yellow,
         drawable = R.drawable.ic_toast_warning,
         dismissToToast = dismissToToast,
     )

@@ -3,7 +3,7 @@ package team.returm.jobisdesignsystem.switch
 import androidx.compose.material.Switch
 import androidx.compose.material.SwitchDefaults
 import androidx.compose.runtime.Composable
-import team.retum.jobisui.colors.SwitchColor
+import team.returm.jobisdesignsystem.colors.SwitchColor
 
 @Composable
 fun JobisSwitch(

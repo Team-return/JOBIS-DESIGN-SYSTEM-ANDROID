@@ -1,4 +1,4 @@
-package team.retum.jobisui.colors
+package team.returm.jobisdesignsystem.colors
 
 import androidx.compose.runtime.Stable
 import androidx.compose.ui.graphics.Color
@@ -51,5 +51,5 @@ object JobisColor {
     val Yellow = Color(0xFFF1C40F)
 
     @Stable
-    val Checked = Color(0xFF0087FF)
+    val ToastBlue = Color(0xFF0087FF)
 }

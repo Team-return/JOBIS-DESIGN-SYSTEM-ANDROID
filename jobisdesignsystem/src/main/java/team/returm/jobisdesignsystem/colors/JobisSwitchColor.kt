@@ -1,9 +1,9 @@
-package team.retum.jobisui.colors
+package team.returm.jobisdesignsystem.colors
 
 import androidx.compose.runtime.Stable
 import androidx.compose.ui.graphics.Color
 
-object JobisSwitchColor{
+object JobisSwitchColor {
     @Stable
     val MainColor = SwitchColor(
         unCheckedColor = SwitchUnCheckedColor.MainColor,
@@ -23,7 +23,7 @@ data class SwitchColorSet(
     val trackColor: Color,
 )
 
-object SwitchUnCheckedColor{
+object SwitchUnCheckedColor {
     @Stable
     val MainColor = SwitchColorSet(
         thumbColor = JobisColor.Gray500,
@@ -31,15 +31,15 @@ object SwitchUnCheckedColor{
     )
 }
 
-object SwitchCheckedColor{
+object SwitchCheckedColor {
     @Stable
     val MainColor = SwitchColorSet(
-        thumbColor = JobisColor.Checked,
+        thumbColor = JobisColor.ToastBlue,
         trackColor = JobisColor.Gray500,
     )
 }
 
-object SwitchDisabledColor{
+object SwitchDisabledColor {
     @Stable
     val MainColor = SwitchColorSet(
         thumbColor = JobisColor.Gray500,
