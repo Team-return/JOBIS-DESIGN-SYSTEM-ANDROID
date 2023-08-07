@@ -55,14 +55,14 @@ afterEvaluate {
                 // You can then customize attributes of the publication as shown below.
                 groupId = 'team.return.jobis'
                 artifactId = 'designsystem'
-                version = 'v1.2.0'
+                version = 'v1.2.1'
             }
             debug(MavenPublication) {
                 from components.debug
 
                 groupId = 'team.return.jobis'
                 artifactId = 'designsystem-debug'
-                version = 'v1.2.0'
+                version = 'v1.2.1'
             }
         }
     }
