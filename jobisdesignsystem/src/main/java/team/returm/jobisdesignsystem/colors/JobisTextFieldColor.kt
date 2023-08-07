@@ -1,9 +1,9 @@
-package team.retum.jobisui.colors
+package team.returm.jobisdesignsystem.colors
 
 import androidx.compose.runtime.Stable
 import androidx.compose.ui.graphics.Color
 
-object JobisTextFieldColor{
+object JobisTextFieldColor {
 
     @Stable
     val MainColor = TextFieldColor(
@@ -37,7 +37,7 @@ data class TextFieldColorSet(
     var helperTextColor: Color,
 )
 
-object FocusedColor{
+object FocusedColor {
     @Stable
     val MainColor = TextFieldColorSet(
         outLineColor = JobisColor.Gray600,
@@ -57,7 +57,7 @@ object FocusedColor{
     )
 }
 
-object UnFocusedColor{
+object UnFocusedColor {
     @Stable
     val MainColor = TextFieldColorSet(
         outLineColor = JobisColor.Gray400,
@@ -79,7 +79,7 @@ object TextFieldDisabledColor {
     )
 }
 
-object ErrorColor{
+object ErrorColor {
     @Stable
     val MainColor = TextFieldColorSet(
         outLineColor = JobisColor.Red,

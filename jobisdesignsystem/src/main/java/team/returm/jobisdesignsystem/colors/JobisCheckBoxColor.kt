@@ -1,9 +1,9 @@
-package team.retum.jobisui.colors
+package team.returm.jobisdesignsystem.colors
 
 import androidx.compose.runtime.Stable
 import androidx.compose.ui.graphics.Color
 
-object JobisCheckBoxColor{
+object JobisCheckBoxColor {
     @Stable
     val MainColor = CheckBoxColor(
         checkedColor = CheckedColor.MainCheckedColor,
@@ -23,16 +23,16 @@ data class CheckBoxColorSet(
     val outLine: Color,
 )
 
-object CheckedColor{
+object CheckedColor {
 
     @Stable
     val MainCheckedColor = CheckBoxColorSet(
-        background = JobisColor.Checked,
-        outLine = JobisColor.Checked,
+        background = JobisColor.ToastBlue,
+        outLine = JobisColor.ToastBlue,
     )
 }
 
-object UnCheckedColor{
+object UnCheckedColor {
 
     @Stable
     val MainUnCheckedColor = CheckBoxColorSet(
@@ -41,7 +41,7 @@ object UnCheckedColor{
     )
 }
 
-object DisabledColor{
+object DisabledColor {
 
     @Stable
     val MainDisabledColor = CheckBoxColorSet(
