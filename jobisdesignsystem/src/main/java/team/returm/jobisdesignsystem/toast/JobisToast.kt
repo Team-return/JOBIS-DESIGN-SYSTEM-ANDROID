@@ -13,7 +13,7 @@ fun JobisSuccessToast(
     BasicToast(
         message = message,
         title = title,
-        messageColor = JobisColor.Green,
+        textColor = JobisColor.Green,
         drawable = R.drawable.ic_toast_success,
         dismissToToast = dismissToToast,
     )
@@ -28,7 +28,7 @@ fun JobisNormalToast(
     BasicToast(
         message = message,
         title = title,
-        messageColor = JobisColor.ToastBlue,
+        textColor = JobisColor.ToastBlue,
         drawable = R.drawable.ic_toast_normal,
         dismissToToast = dismissToToast,
     )
@@ -43,7 +43,7 @@ fun JobisErrorToast(
     BasicToast(
         message = message,
         title = title,
-        messageColor = JobisColor.Red,
+        textColor = JobisColor.Red,
         drawable = R.drawable.ic_toast_error,
         dismissToToast = dismissToToast,
     )
@@ -58,7 +58,7 @@ fun JobisWarningToast(
     BasicToast(
         message = message,
         title = title,
-        messageColor = JobisColor.Yellow,
+        textColor = JobisColor.Yellow,
         drawable = R.drawable.ic_toast_warning,
         dismissToToast = dismissToToast,
     )

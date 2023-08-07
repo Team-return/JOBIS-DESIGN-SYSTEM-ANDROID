@@ -27,7 +27,7 @@ internal fun BasicToast(
     title: String? = null,
     message: String,
     dismissToToast: () -> Unit,
-    messageColor: Color,
+    textColor: Color,
     @DrawableRes drawable: Int,
 ) {
     Row(
@@ -54,17 +54,19 @@ internal fun BasicToast(
             if (title != null) {
                 Body3(
                     text = title,
+                    color = textColor,
                 )
                 Body4(
                     text = message,
-                    color = messageColor,
+                    color = JobisColor.Gray600,
                 )
             } else {
                 Body3(
                     text = message,
-                    color = messageColor,
+                    color = textColor,
                 )
             }
+
         }
         JobisImage(
             drawable = JobisIcon.Close,
