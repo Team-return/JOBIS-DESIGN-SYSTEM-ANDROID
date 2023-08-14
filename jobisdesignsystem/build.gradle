@@ -9,7 +9,7 @@ android {
     compileSdk 33
 
     defaultConfig {
-        minSdk 33
+        minSdk 24
         targetSdk 33
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -53,16 +53,16 @@ afterEvaluate {
                 from components.release
 
                 // You can then customize attributes of the publication as shown below.
-                groupId = 'team.return.jobis'
-                artifactId = 'designsystem'
-                version = 'v1.2.1'
+                groupId = 'team.retum.jobisdesignsystem'
+                artifactId = 'final'
+                version = 'v1.2.2'
             }
             debug(MavenPublication) {
                 from components.debug
 
-                groupId = 'team.return.jobis'
-                artifactId = 'designsystem-debug'
-                version = 'v1.2.1'
+                groupId = 'team.retum.jobisdesignsystem'
+                artifactId = 'final-debug'
+                version = 'v1.2.2'
             }
         }
     }
