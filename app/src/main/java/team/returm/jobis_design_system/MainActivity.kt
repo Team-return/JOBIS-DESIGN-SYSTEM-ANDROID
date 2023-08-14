@@ -16,11 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import team.retum.jobisui.colors.JobisButtonColor
-import team.retum.jobisui.colors.JobisColor
-import team.returm.jobisdesignsystem.button.JobisSmallIconButton
-import team.returm.jobisdesignsystem.icon.JobisIcon
-import team.returm.jobisdesignsystem.util.JobisSize
+import team.returm.jobisdesignsystem.colors.JobisColor
 import team.returm.jobisdesignsystem.util.jobisClickable
 
 class MainActivity : ComponentActivity() {
