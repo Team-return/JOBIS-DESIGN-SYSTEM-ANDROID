@@ -30,11 +30,6 @@ private fun JobisIconButton(
         leftIcon = null,
         centerIcon = {
             Image(
-                modifier = Modifier.jobisClickable(
-                    rippleEnabled = rippleEnabled,
-                    enabled = enabled,
-                    onClick = onClick,
-                ),
                 painter = painterResource(id = drawableRes),
                 contentDescription = imageContentDescription,
             )
