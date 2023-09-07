@@ -1,37 +1,37 @@
 package team.returm.jobisdesignsystem.button
 
+import androidx.annotation.DrawableRes
+import androidx.compose.foundation.Image
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.res.painterResource
 import team.retum.jobisui.colors.ButtonColor
 import team.retum.jobisui.colors.JobisButtonColor
 import team.returm.jobisdesignsystem.theme.JobisTypography
-import team.returm.jobisdesignsystem.image.JobisImage
 import team.returm.jobisdesignsystem.util.JobisSize
+import team.returm.jobisdesignsystem.util.jobisClickable
 
 @Composable
 private fun JobisIconButton(
-    drawable: Int,
+    @DrawableRes drawableRes: Int,
     color: ButtonColor,
     enabled: Boolean,
     onClick: () -> Unit,
     rippleEnabled: Boolean,
     modifier: Modifier,
-    imageSize: Modifier,
     shape: Shape,
     shadow: Boolean,
+    imageContentDescription: String,
 ) {
     BasicButton(
         modifier = modifier,
         text = null,
         leftIcon = null,
         centerIcon = {
-            JobisImage(
-                drawable = drawable,
-                modifier = imageSize,
-                onClick = onClick,
-                enabled = enabled,
-                rippleEnabled = rippleEnabled,
+            Image(
+                painter = painterResource(id = drawableRes),
+                contentDescription = imageContentDescription,
             )
         },
         rightIcon = null,
@@ -52,18 +52,19 @@ fun JobisSmallIconButton(
     enabled: Boolean = true,
     rippleEnabled: Boolean = false,
     shadow: Boolean = false,
+    imageContentDescription: String,
     onClick: () -> Unit,
 ) {
     JobisIconButton(
-        drawable = drawable,
+        drawableRes = drawable,
         color = color,
         enabled = enabled,
-        imageSize = JobisSize.IconSize.Small,
         modifier = JobisSize.ButtonSize.Icon.Medium,
         onClick = onClick,
         rippleEnabled = rippleEnabled,
         shape = JobisSize.Shape.Circle,
         shadow = shadow,
+        imageContentDescription = imageContentDescription,
     )
 }
 
@@ -75,17 +76,18 @@ fun JobisMediumIconButton(
     rippleEnabled: Boolean = false,
     shadow: Boolean = false,
     shape: Shape,
+    imageContentDescription: String,
     onClick: () -> Unit,
 ) {
     JobisIconButton(
-        drawable = drawable,
+        drawableRes = drawable,
         color = color,
         enabled = enabled,
         rippleEnabled = rippleEnabled,
-        imageSize = JobisSize.IconSize.Medium,
         modifier = JobisSize.ButtonSize.Icon.Large,
         onClick = onClick,
         shape = shape,
         shadow = shadow,
+        imageContentDescription = imageContentDescription,
     )
 }
