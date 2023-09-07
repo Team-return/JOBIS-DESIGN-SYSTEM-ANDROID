@@ -1,6 +1,7 @@
 package team.returm.jobisdesignsystem.toast
 
 import androidx.annotation.DrawableRes
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -14,13 +15,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import team.returm.jobisdesignsystem.R
 import team.returm.jobisdesignsystem.colors.JobisColor
 import team.returm.jobisdesignsystem.icon.JobisIcon
-import team.returm.jobisdesignsystem.image.JobisImage
 import team.returm.jobisdesignsystem.theme.Body3
 import team.returm.jobisdesignsystem.theme.Body4
 import team.returm.jobisdesignsystem.util.JobisSize
+import team.returm.jobisdesignsystem.util.jobisClickable
 
 @Composable
 internal fun BasicToast(
@@ -48,7 +52,10 @@ internal fun BasicToast(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Spacer(modifier = Modifier.width(20.dp))
-        JobisImage(drawable = drawable)
+        Image(
+            painter = painterResource(id = drawable),
+            contentDescription = stringResource(id = R.string.content_description_icon_toast),
+        )
         Spacer(modifier = Modifier.width(18.dp))
         Column(modifier = Modifier.fillMaxWidth(0.85f)) {
             if (title != null) {
@@ -66,11 +73,11 @@ internal fun BasicToast(
                     color = textColor,
                 )
             }
-
         }
-        JobisImage(
-            drawable = JobisIcon.Close,
-            onClick = dismissToToast,
+        Image(
+            modifier = Modifier.jobisClickable(onClick = dismissToToast),
+            painter = painterResource(id = JobisIcon.Close),
+            contentDescription = stringResource(id = R.string.content_description_icon_toast_close),
         )
     }
 }

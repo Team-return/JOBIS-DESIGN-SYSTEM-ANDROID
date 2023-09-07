@@ -1,6 +1,7 @@
 package team.returm.jobisdesignsystem.dropdown
 
 import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -25,10 +26,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import team.returm.jobisdesignsystem.R
 import team.returm.jobisdesignsystem.colors.DropDownColor
 import team.returm.jobisdesignsystem.icon.JobisIcon
-import team.returm.jobisdesignsystem.image.JobisImage
 import team.returm.jobisdesignsystem.theme.Caption
 import team.returm.jobisdesignsystem.util.Animated
 import team.returm.jobisdesignsystem.util.JobisSize
@@ -48,6 +51,10 @@ fun JobisDropDown(
     var dropDownTitle by remember { mutableStateOf(title) }
 
     var isExpanded by remember { mutableStateOf(false) }
+
+    val changeIsExpanded = {
+        isExpanded = !isExpanded
+    }
 
     val rotateState by animateFloatAsState(
         targetValue = if (isExpanded) 180f else 0f
@@ -95,18 +102,16 @@ fun JobisDropDown(
             Caption(
                 text = dropDownTitle,
             )
-            JobisImage(
-                modifier = Modifier.rotate(rotateState),
-                drawable = JobisIcon.DownArrow,
-                onClick = { isExpanded = !isExpanded },
+            Image(
+                modifier = Modifier
+                    .rotate(rotateState)
+                    .jobisClickable(onClick = changeIsExpanded),
+                painter = painterResource(id = JobisIcon.DownArrow),
+                contentDescription = stringResource(id = R.string.content_description_icon_dropdown),
             )
         }
-
         Spacer(modifier = Modifier.height(8.dp))
-
-        Animated(
-            visible = isExpanded,
-        ) {
+        Animated(visible = isExpanded) {
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
