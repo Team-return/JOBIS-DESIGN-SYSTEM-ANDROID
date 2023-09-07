@@ -34,7 +34,6 @@ import team.returm.jobisdesignsystem.colors.JobisColor
 import team.returm.jobisdesignsystem.colors.JobisTextFieldColor
 import team.returm.jobisdesignsystem.colors.TextFieldColor
 import team.returm.jobisdesignsystem.icon.JobisIcon
-import team.returm.jobisdesignsystem.image.JobisImage
 import team.returm.jobisdesignsystem.theme.Body4
 import team.returm.jobisdesignsystem.theme.Caption
 import team.returm.jobisdesignsystem.theme.JobisTypography
@@ -141,9 +140,10 @@ fun JobisBasicTextField(
                         }
 
                         TextFieldType.SEARCH -> {
-                            JobisImage(
-                                onClick = onIconClick,
-                                drawable = JobisIcon.Search,
+                            Image(
+                                modifier = Modifier.jobisClickable(onClick = { onIconClick?.invoke() }),
+                                painter = painterResource(id = JobisIcon.Search),
+                                contentDescription = stringResource(id = R.string.content_description_icon_text_field),
                             )
                         }
                     }
