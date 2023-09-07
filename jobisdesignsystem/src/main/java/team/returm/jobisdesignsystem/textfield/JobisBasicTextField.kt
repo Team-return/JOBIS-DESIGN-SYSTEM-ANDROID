@@ -1,5 +1,6 @@
 package team.returm.jobisdesignsystem.textfield
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
@@ -21,11 +22,14 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.onFocusChanged
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
+import team.returm.jobisdesignsystem.R
 import team.returm.jobisdesignsystem.colors.JobisColor
 import team.returm.jobisdesignsystem.colors.JobisTextFieldColor
 import team.returm.jobisdesignsystem.colors.TextFieldColor
@@ -35,6 +39,7 @@ import team.returm.jobisdesignsystem.theme.Body4
 import team.returm.jobisdesignsystem.theme.Caption
 import team.returm.jobisdesignsystem.theme.JobisTypography
 import team.returm.jobisdesignsystem.util.JobisSize
+import team.returm.jobisdesignsystem.util.jobisClickable
 
 @Composable
 fun JobisBasicTextField(
@@ -69,6 +74,8 @@ fun JobisBasicTextField(
     else color.unFocusedColor.helperTextColor
 
     val textFieldWidth = if (textFieldType != null) 0.9f else 1f
+
+    val changePasswordVisibility = { passwordVisible = !passwordVisible }
 
     Box {
         Column {
@@ -122,10 +129,13 @@ fun JobisBasicTextField(
                     when (textFieldType) {
                         TextFieldType.PASSWORD -> {
                             if (value.isNotEmpty()) {
-                                JobisImage(
-                                    onClick = { passwordVisible = !passwordVisible },
-                                    drawable = if (passwordVisible) JobisIcon.VisibleOn
-                                    else JobisIcon.VisibleOff
+                                Image(
+                                    modifier = Modifier.jobisClickable(onClick = changePasswordVisibility),
+                                    painter = painterResource(
+                                        id = if (passwordVisible) JobisIcon.VisibleOn
+                                        else JobisIcon.VisibleOff
+                                    ),
+                                    contentDescription = stringResource(id = R.string.content_description_icon_password_visibility),
                                 )
                             }
                         }

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--content description-->
+    <string name="content_description_icon_password_visibility">Password Visibility Icon</string>
+    <string name="content_description_icon_checkbox_check">CheckBox Check Icon</string>
+</resources>
