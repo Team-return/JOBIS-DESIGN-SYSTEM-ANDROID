@@ -41,9 +41,6 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.8.0'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }
 
 afterEvaluate {
@@ -55,18 +52,18 @@ afterEvaluate {
                 from components.release
 
                 // You can then customize attributes of the publication as shown below.
-                groupId = 'team.retum.jobisdesignsystem'
+                groupId = 'team.return.jds-android'
                 artifactId = 'final'
-                version = 'v1.2.2'
+                version = 'v1.3.0'
             }
             // Creates a Maven publication called “debug”.
             debug(MavenPublication) {
                 // Applies the component for the debug build variant.
                 from components.debug
 
-                groupId = 'team.retum.jobisdesignsystem'
+                groupId = 'team.retum.jds-android'
                 artifactId = 'final-debug'
-                version = 'v1.2.2'
+                version = 'v1.3.0'
             }
         }
     }
