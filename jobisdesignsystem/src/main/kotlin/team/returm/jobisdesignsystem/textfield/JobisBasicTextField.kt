@@ -1,8 +1,10 @@
 package team.returm.jobisdesignsystem.textfield
 
+import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -37,6 +39,7 @@ import team.returm.jobisdesignsystem.icon.JobisIcon
 import team.returm.jobisdesignsystem.theme.Body4
 import team.returm.jobisdesignsystem.theme.Caption
 import team.returm.jobisdesignsystem.theme.JobisTypography
+import team.returm.jobisdesignsystem.util.Animated
 import team.returm.jobisdesignsystem.util.JobisSize
 import team.returm.jobisdesignsystem.util.jobisClickable
 
@@ -64,20 +67,26 @@ fun JobisBasicTextField(
 
     var passwordVisible by remember { mutableStateOf(false) }
 
-    val fieldTextColor = if (!enabled) color.disabledColor.fieldTextColor
-    else if (error) color.errorColor.fieldTextColor
-    else if (isFocused) color.focusedColor.fieldTextColor
-    else color.unFocusedColor.fieldTextColor
+    val fieldTextColor by animateColorAsState(
+        targetValue = if (!enabled) color.disabledColor.fieldTextColor
+        else if (error) color.errorColor.fieldTextColor
+        else if (isFocused) color.focusedColor.fieldTextColor
+        else color.unFocusedColor.fieldTextColor,
+    )
 
-    val helperTextColor = if (error) color.errorColor.helperTextColor
-    else color.unFocusedColor.helperTextColor
+    val helperTextColor by animateColorAsState(
+        targetValue = if (error) color.errorColor.helperTextColor
+        else color.unFocusedColor.helperTextColor,
+    )
 
     val textFieldWidth = if (textFieldType != null) 0.9f else 1f
 
     val changePasswordVisibility = { passwordVisible = !passwordVisible }
 
     Box {
-        Column {
+        Column(
+            verticalArrangement = Arrangement.Top,
+        ) {
             if (fieldText != null) {
                 Body4(
                     color = fieldTextColor,
@@ -151,11 +160,16 @@ fun JobisBasicTextField(
                 icon?.invoke()
             }
             divider?.invoke()
-            if (enabled && (helperText != null || errorText != null)) {
-                Spacer(modifier = Modifier.height(2.dp))
+            Spacer(modifier = Modifier.height(2.dp))
+            if (helperText == null)
+                Animated(visible = error && errorText != null) {
+                    Caption(
+                        text = errorText!!,
+                        color = helperTextColor,
+                    )
+                } else {
                 Caption(
-                    text = if (error) errorText ?: ""
-                    else helperText ?: "",
+                    text = helperText,
                     color = helperTextColor,
                 )
             }
