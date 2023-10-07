@@ -50,16 +50,16 @@ afterEvaluate {
                 from components.release
 
                 // You can then customize attributes of the publication as shown below.
-                groupId = 'team.return.jds-android'
-                artifactId = 'final'
+                groupId = 'team.return.jobis'
+                artifactId = 'jds-android'
                 version = 'v1.3.0'
             }
             debug(MavenPublication) {
                 from components.debug
 
-                groupId = 'team.retum.jds-android'
+                groupId = 'team.return.jobis'
+                artifactId = 'jds-android'
                 version = 'v1.3.0'
-                artifactId = 'final-debug'
             }
         }
     }
