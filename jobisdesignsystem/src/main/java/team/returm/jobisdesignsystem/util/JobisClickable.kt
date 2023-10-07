@@ -16,6 +16,7 @@ fun Modifier.jobisClickable(
     rippleEnabled: Boolean = false,
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    bounceEnabled: Boolean = true,
     onClick: () -> Unit,
 ) = composed {
     Modifier.clickable(
@@ -27,5 +28,5 @@ fun Modifier.jobisClickable(
         ).takeIf {
             rippleEnabled
         },
-    )
+    ).bounceClick(if(bounceEnabled) 0.99f else 1f)
 }
