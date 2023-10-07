@@ -1,5 +1,6 @@
 package team.returm.jobisdesignsystem.button
 
+import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -17,7 +18,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
@@ -37,49 +37,50 @@ fun BasicButton(
     centerIcon: @Composable (() -> Unit)?,
     onClick: () -> Unit,
     rippleEnabled: Boolean,
+    bounceEnabled: Boolean,
     text: String?,
     style: TextStyle,
     enabled: Boolean,
     shadow: Boolean,
 ) {
-
     val interactionSource = remember { MutableInteractionSource() }
 
     val isPressed by interactionSource.collectIsPressedAsState()
 
-    val backgroundColor: Color?
-    val outLineColor: Color?
-    val textColor: Color?
+    val backgroundColor by animateColorAsState(
+        targetValue = if (!enabled) color.disabledColor.background
+        else if (isPressed) color.pressedColor.background
+        else color.unPressedColor.background,
+    )
 
-    if (!enabled) {
-        backgroundColor = color.disabledColor.background
-        outLineColor = color.disabledColor.outLine
-        textColor = color.disabledColor.text
-    } else if (isPressed) {
-        backgroundColor = color.pressedColor.background
-        outLineColor = color.pressedColor.outLine
-        textColor = color.pressedColor.text
-    } else {
-        backgroundColor = color.unPressedColor.background
-        outLineColor = color.unPressedColor.outLine
-        textColor = color.unPressedColor.text
-    }
+    val outLineColor by animateColorAsState(
+        targetValue = if (!enabled) color.disabledColor.outLine
+        else if (isPressed) color.pressedColor.outLine
+        else color.unPressedColor.outLine
+    )
+
+    val textColor by animateColorAsState(
+        targetValue = if (!enabled) color.disabledColor.text
+        else if (isPressed) color.pressedColor.text
+        else color.unPressedColor.text
+    )
 
     Row(
         modifier = modifier
             .fillMaxWidth()
+            .jobisClickable(
+                rippleEnabled = rippleEnabled,
+                enabled = enabled,
+                interactionSource = interactionSource,
+                bounceEnabled = bounceEnabled,
+                onClick = onClick,
+            )
             .shadow(
                 elevation = if (shadow) 6.dp
                 else 0.dp,
                 shape = shape,
             )
             .clip(shape = shape)
-            .jobisClickable(
-                onClick = onClick,
-                enabled = enabled,
-                rippleEnabled = rippleEnabled,
-                interactionSource = interactionSource,
-            )
             .border(
                 width = 1.5.dp,
                 color = outLineColor,
@@ -120,6 +121,8 @@ fun JobisSmallButton(
     rightIcon: @Composable (() -> Unit)? = null,
     enabled: Boolean = true,
     rippleEnabled: Boolean = false,
+    pressed: Float = 0.99f,
+    bounceEnabled: Boolean = true,
     shadow: Boolean = false,
     onClick: () -> Unit,
 ) {
@@ -130,6 +133,7 @@ fun JobisSmallButton(
         color = color,
         enabled = enabled,
         rippleEnabled = rippleEnabled,
+        bounceEnabled = bounceEnabled,
         shape = JobisSize.Shape.Circle,
         onClick = onClick,
         leftIcon = leftIcon,
@@ -147,6 +151,8 @@ fun JobisMediumButton(
     rightIcon: @Composable (() -> Unit)? = null,
     enabled: Boolean = true,
     rippleEnabled: Boolean = false,
+    pressed: Float = 0.99f,
+    bounceEnabled: Boolean = true,
     shadow: Boolean = false,
     onClick: () -> Unit,
 ) {
@@ -159,6 +165,7 @@ fun JobisMediumButton(
         shape = JobisSize.Shape.Medium,
         onClick = onClick,
         rippleEnabled = rippleEnabled,
+        bounceEnabled = bounceEnabled,
         leftIcon = leftIcon,
         centerIcon = null,
         rightIcon = rightIcon,
@@ -174,6 +181,8 @@ fun JobisLargeButton(
     rightIcon: @Composable (() -> Unit)? = null,
     enabled: Boolean = true,
     rippleEnabled: Boolean = false,
+    pressed: Float = 0.99f,
+    bounceEnabled: Boolean = true,
     shadow: Boolean = false,
     onClick: () -> Unit,
 ) {
@@ -184,6 +193,7 @@ fun JobisLargeButton(
         color = color,
         enabled = enabled,
         rippleEnabled = rippleEnabled,
+        bounceEnabled = bounceEnabled,
         shape = JobisSize.Shape.Large,
         onClick = onClick,
         leftIcon = leftIcon,

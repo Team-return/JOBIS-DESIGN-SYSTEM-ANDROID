@@ -10,7 +10,6 @@ import team.retum.jobisui.colors.ButtonColor
 import team.retum.jobisui.colors.JobisButtonColor
 import team.returm.jobisdesignsystem.theme.JobisTypography
 import team.returm.jobisdesignsystem.util.JobisSize
-import team.returm.jobisdesignsystem.util.jobisClickable
 
 @Composable
 private fun JobisIconButton(
@@ -19,6 +18,7 @@ private fun JobisIconButton(
     enabled: Boolean,
     onClick: () -> Unit,
     rippleEnabled: Boolean,
+    bounceEnabled: Boolean,
     modifier: Modifier,
     shape: Shape,
     shadow: Boolean,
@@ -38,6 +38,7 @@ private fun JobisIconButton(
         color = color,
         enabled = enabled,
         rippleEnabled = rippleEnabled,
+        bounceEnabled = bounceEnabled,
         onClick = onClick,
         shape = shape,
         style = JobisTypography.caption,
@@ -51,6 +52,7 @@ fun JobisSmallIconButton(
     color: ButtonColor = JobisButtonColor.MainSolidColor,
     enabled: Boolean = true,
     rippleEnabled: Boolean = false,
+    bounceEnabled: Boolean = true,
     shadow: Boolean = false,
     imageContentDescription: String,
     onClick: () -> Unit,
@@ -62,6 +64,7 @@ fun JobisSmallIconButton(
         modifier = JobisSize.ButtonSize.Icon.Medium,
         onClick = onClick,
         rippleEnabled = rippleEnabled,
+        bounceEnabled = bounceEnabled,
         shape = JobisSize.Shape.Circle,
         shadow = shadow,
         imageContentDescription = imageContentDescription,
@@ -74,6 +77,8 @@ fun JobisMediumIconButton(
     color: ButtonColor = JobisButtonColor.MainSolidColor,
     enabled: Boolean = true,
     rippleEnabled: Boolean = false,
+    pressed: Float = 0.99f,
+    bounceEnabled: Boolean = true,
     shadow: Boolean = false,
     shape: Shape,
     imageContentDescription: String,
@@ -84,6 +89,7 @@ fun JobisMediumIconButton(
         color = color,
         enabled = enabled,
         rippleEnabled = rippleEnabled,
+        bounceEnabled = bounceEnabled,
         modifier = JobisSize.ButtonSize.Icon.Large,
         onClick = onClick,
         shape = shape,
