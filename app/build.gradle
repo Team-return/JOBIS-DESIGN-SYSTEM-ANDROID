@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace 'team.returm.jobis_design_system'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "team.returm.jobis_design_system"
