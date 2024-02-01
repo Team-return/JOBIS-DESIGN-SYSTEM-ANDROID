@@ -36,11 +36,11 @@ android {
 
 dependencies {
 
-    implementation 'androidx.compose.ui:ui:1.3.3'
-    implementation 'androidx.compose.material:material:1.3.1'
-    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.compose.ui:ui:1.5.4'
+    implementation 'androidx.compose.material:material:1.5.4'
+    implementation 'androidx.core:core-ktx:1.12.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'com.google.android.material:material:1.10.0'
 }
 
 afterEvaluate {
@@ -48,18 +48,15 @@ afterEvaluate {
         publications {
             release(MavenPublication) {
                 from components.release
-
-                // You can then customize attributes of the publication as shown below.
-                groupId = 'team.return.jobis'
-                artifactId = 'jds-android'
-                version = 'v1.3.0'
+                groupId = 'team.return.jobis.android'
+                artifactId = 'designsystem'
+                version = 'v1.3.1'
             }
             debug(MavenPublication) {
                 from components.debug
-
-                groupId = 'team.return.jobis'
-                artifactId = 'jds-android'
-                version = 'v1.3.0'
+                groupId = 'team.return.jobis.android'
+                artifactId = 'designsystem'
+                version = 'v1.3.1'
             }
         }
     }
