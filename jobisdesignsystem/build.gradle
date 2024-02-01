@@ -52,18 +52,18 @@ afterEvaluate {
                 from components.release
 
                 // You can then customize attributes of the publication as shown below.
-                groupId = 'team.return.jds-android'
-                artifactId = 'final'
-                version = 'v1.3.0'
+                groupId = 'team.return.jobis.android'
+                artifactId = 'designsystem'
+                version = 'v1.3.1'
             }
             // Creates a Maven publication called “debug”.
             debug(MavenPublication) {
                 // Applies the component for the debug build variant.
                 from components.debug
 
-                groupId = 'team.retum.jds-android'
-                artifactId = 'final-debug'
-                version = 'v1.3.0'
+                groupId = 'team.return.jobis.android'
+                artifactId = 'designsystem'
+                version = 'v1.3.1'
             }
         }
     }
